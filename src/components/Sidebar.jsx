@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../../styles/base.css'
 import { TAB_GROUPS } from '../data/tabs.js'
 
-export default function Sidebar({ activeTab, onTabChange, collapsed, onToggleCollapse }){
+export default function Sidebar({ activeTab, onTabChange, actionItemCount=0, collapsed, onToggleCollapse }){
 
   useEffect(()=>{
     const w = collapsed ? '64px' : '220px'

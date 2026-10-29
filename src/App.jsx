@@ -63,6 +63,7 @@ export default function App() {
       <Sidebar
         activeTab={tab}
         onTabChange={setTab}
+        actionItemCount={criticalCount}
         collapsed={sidebarCollapsed}
         onToggleCollapse={()=>setSidebarCollapsed(p=>!p)}
       />
