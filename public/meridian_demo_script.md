@@ -1,13 +1,13 @@
-# GMPL Chairman's Dashboard — Demo Script
+# MSG Chairman's Dashboard — Demo Script
 ## Meeting Preparation Brief for KJ
-**Audience:** Chairman, Archean Group / Good Earth Maritime / Nura Shipco
+**Audience:** Chairman, Meridian Group / Meridian Shipping / Meridian ShipCo
 **Duration:** 20–25 minutes | **Tone:** Confident. Unhurried. Let the product speak.
 
 ---
 
 ## BEFORE YOU WALK IN
 
-**Have open on your laptop:** `https://gmpl-dashboard.vercel.app/` → Group Overview tab  
+**Have open on your laptop:** `https://your-deployment.vercel.app/` → Group Overview tab  
 **Have on the table:** iPhone with dashboard URL bookmarked as home screen shortcut  
 **Have beside it:** iPad (if available) open to the same URL  
 **Silence notifications** on all three devices  
@@ -117,11 +117,11 @@
 
 *Click Fleet Status in the sidebar.*
 
-> "Your nine vessels. Four MR tankers, five Cosmos river barges. Every one of them showing status, current position, TCE per day, and utilisation."
+> "Your nine vessels. Four MR tankers, five Orion river barges. Every one of them showing status, current position, TCE per day, and utilisation."
 
 *Point to the table.*
 
-> "TCE — time-charter equivalent — is the daily earnings number that tells you the real commercial performance of a vessel, net of voyage costs. Pool operators like Maersk Tankers report to you in TCE. When Maersk Tankers tells you MT Nura Kara is earning $19,400 a day, this is where you see whether that's above or below your target, and how it compares to the other vessels in your fleet."
+> "TCE — time-charter equivalent — is the daily earnings number that tells you the real commercial performance of a vessel, net of voyage costs. Pool operators like Northstar Tankers report to you in TCE. When Northstar Tankers tells you MT Calypso is earning $19,400 a day, this is where you see whether that's above or below your target, and how it compares to the other vessels in your fleet."
 
 *Click on one of the MR tanker rows — whichever has the most interesting status.*
 
@@ -129,7 +129,7 @@
 
 **[Let him look.]**
 
-> "If MT Nura Bright is sitting idle, you see it. If MT Prelude has an open PSC deficiency, you see it. You don't wait for someone to tell you."
+> "If MT Delphine is sitting idle, you see it. If MT Aurora has an open PSC deficiency, you see it. You don't wait for someone to tell you."
 
 ---
 
@@ -185,7 +185,7 @@
 
 *Move the fleet utilisation slider from 82% to 90%.*
 
-> "And if you bring fleet utilisation up to 90% — which is achievable if you move MT Nura Bright back into commercial trade — this is what that decision is worth."
+> "And if you bring fleet utilisation up to 90% — which is achievable if you move MT Delphine back into commercial trade — this is what that decision is worth."
 
 *Point to the sensitivity ranking.*
 
@@ -221,7 +221,7 @@
 
 *Close the laptop gently. Sit back slightly.*
 
-> "What you've just seen is a working product. Not a prototype, not a slide deck — a live dashboard built on your actual business: four MR tankers, five Cosmos river barges, four verticals."
+> "What you've just seen is a working product. Not a prototype, not a slide deck — a live dashboard built on your actual business: four MR tankers, five Orion river barges, four verticals."
 
 > "The version you've seen today runs on representative data. The production version connects to your actual numbers — your Zoho ERP, your technical system, your crewing records. The external feeds — BDI, bunker prices, AIS vessel positions — come in automatically."
 
@@ -301,15 +301,15 @@ These are not talking points to insert. They are context to have available if a 
 
 **MR tanker market right now:** MR (Medium Range) product tankers are in a structurally strong position. Refinery capacity is shifting East — large refineries being built in the Middle East and Asia mean more clean product moving longer distances to consuming markets in Europe and Americas. Longer voyages = more ton-miles = higher effective demand. The BCTI (Baltic Clean Tanker Index) is the benchmark.
 
-**Pool operators:** Maersk Tankers and Hafnia are two of the three largest MR pool operators globally. Pool operators combine vessels from multiple owners, optimise cargo matching across the pool, and distribute earnings on a pool average TCE basis. The owner gets the pool average, not their individual vessel's voyage result. This is lower risk but caps upside.
+**Pool operators:** Northstar Tankers and Polaris are two of the three largest MR pool operators globally. Pool operators combine vessels from multiple owners, optimise cargo matching across the pool, and distribute earnings on a pool average TCE basis. The owner gets the pool average, not their individual vessel's voyage result. This is lower risk but caps upside.
 
 **PSC (Port State Control):** Inspections conducted by port authorities in any country to verify vessel compliance with international conventions (SOLAS, MARPOL, MLC). A detention — where the vessel is held in port for deficiencies — is commercially devastating and reputationally damaging with charterers. Oil majors vet PSC records before approving a vessel for their cargo.
 
 **SIRE inspections:** The Ship Inspection Report Programme, managed by OCIMF. Required before most major oil company charterers will fix cargo on a vessel. A vessel without a current, passing SIRE inspection cannot trade with Shell, BP, Aramco Trading, Vitol, or most major charterers. Validity is approximately one year.
 
-**Cosmos river barges:** Inland waterway vessels, typically operating on Indian river systems (Ganga, Brahmaputra). Different commercial model — freight rates per ton, shorter voyages, more crew rotations. Lower capital value than ocean-going vessels but important cash flow contributors. Subject to different regulatory framework (inland waterway authority, not IMO).
+**Orion river barges:** Inland waterway vessels, typically operating on Indian river systems (Ganga, Brahmaputra). Different commercial model — freight rates per ton, shorter voyages, more crew rotations. Lower capital value than ocean-going vessels but important cash flow contributors. Subject to different regulatory framework (inland waterway authority, not IMO).
 
-**Why the Chairman of an Indian maritime group is based in Dubai / has UAE SPVs:** UAE (Ras Al Khaimah FTZ) offers zero corporate tax, easy repatriation of capital, access to international banking, and no withholding tax on dividends — making it a standard jurisdiction for ship-owning SPVs from the Indian subcontinent. MT Nura Kara and MT Nura Bright being incorporated in UAE RAK FTZ is a deliberate, common, and legal tax structure.
+**Why the Chairman of an Indian maritime group is based in Dubai / has UAE SPVs:** UAE (Ras Al Khaimah FTZ) offers zero corporate tax, easy repatriation of capital, access to international banking, and no withholding tax on dividends — making it a standard jurisdiction for ship-owning SPVs from the Indian subcontinent. MT Calypso and MT Delphine being incorporated in UAE RAK FTZ is a deliberate, common, and legal tax structure.
 
 ---
 

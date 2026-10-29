@@ -13,7 +13,7 @@ const EXPECTED_SHEETS = [
   { tab:'08 Active Deals',         label:'Active Deals',        required:false },
   { tab:'09 Inspections',          label:'Inspections',         required:false },
   { tab:'10 HSE',                  label:'HSE Incidents',       required:false },
-  { tab:'11 Nura Shipco Charters', label:'Nura Shipco Charters',required:false },
+  { tab:'11 Meridian ShipCo Charters', label:'Meridian ShipCo Charters',required:false },
 ]
 
 function sheetToRows(wb, tabName, headerRow=3) {
@@ -201,7 +201,7 @@ export default function FileUpload({ A }) {
   return (
     <div style={{ maxWidth:900 }}>
       <div style={{ fontFamily:"'Playfair Display',serif", fontSize:22, fontWeight:600, color:A.text, marginBottom:4 }}>Data Upload</div>
-      <div style={{ fontSize:13, color:A.muted, marginBottom:20 }}>Upload the Goodearth data template. The system parses each tab and pushes data directly to Supabase. The Chairman's dashboard updates in real time.</div>
+      <div style={{ fontSize:13, color:A.muted, marginBottom:20 }}>Upload the Meridian data template. The system parses each tab and pushes data directly to Supabase. The Chairman's dashboard updates in real time.</div>
 
       {/* Drop zone */}
       <div onDrop={onDrop} onDragOver={e=>{e.preventDefault();setDragging(true)}} onDragLeave={()=>setDragging(false)}
@@ -210,9 +210,9 @@ export default function FileUpload({ A }) {
         <input id="file-input" type="file" accept=".xlsx,.xls" style={{ display:'none' }} onChange={e=>e.target.files[0]&&processFile(e.target.files[0])}/>
         <div style={{ fontSize:32, marginBottom:12 }}>📊</div>
         <div style={{ fontFamily:"'Playfair Display',serif", fontSize:16, color:A.text, marginBottom:8 }}>
-          {file ? file.name : 'Drop GMPL Data Template here or click to browse'}
+          {file ? file.name : 'Drop MSG Data Template here or click to browse'}
         </div>
-        <div style={{ fontSize:12, color:A.muted }}>Accepts GMPL_Data_Template.xlsx · All 11 tabs supported</div>
+        <div style={{ fontSize:12, color:A.muted }}>Accepts MSG_Data_Template.xlsx · All 11 tabs supported</div>
       </div>
 
       {/* Preview */}
@@ -276,7 +276,7 @@ export default function FileUpload({ A }) {
       <div style={{ background:A.card, border:`1px solid ${A.border}`, borderRadius:12, padding:'20px', marginTop:16 }}>
         <div style={{ fontFamily:"'Playfair Display',serif", fontSize:15, color:A.gold, marginBottom:12 }}>How it works</div>
         {[
-          ['1. Download the template', 'Use the GMPL_Data_Template.xlsx provided. Fill in all blue cells.'],
+          ['1. Download the template', 'Use the MSG_Data_Template.xlsx provided. Fill in all blue cells.'],
           ['2. Add vessel coordinates', 'Tab 02 columns Q & R: look up each vessel on MarineTraffic.com (free) and enter lat/long.'],
           ['3. Upload here',           'Drag & drop or browse. The system validates all tabs before uploading.'],
           ['4. Review preview',        'Confirm row counts match expectations before pushing to the database.'],

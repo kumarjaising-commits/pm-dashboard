@@ -1,4 +1,4 @@
-// ─── GMPL Premium Design System — v2 (High Contrast Chairman Edition) ────────
+// ─── MSG Premium Design System — v2 (High Contrast Chairman Edition) ────────
 // Optimised for readability at 45+ — larger text, higher contrast, clear hierarchy
 
 export const C = {

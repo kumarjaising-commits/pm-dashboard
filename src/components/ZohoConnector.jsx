@@ -264,7 +264,7 @@ export default function ZohoConnector() {
             <div style={{ width:48, height:48, background:`linear-gradient(135deg,${C.gold},${C.goldLight})`, borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, color:C.bg, fontWeight:700, flexShrink:0 }}>Z</div>
             <div>
               <div style={{ fontFamily:"'Playfair Display',serif", fontSize:18, fontWeight:600, color:C.gold }}>Zoho Finance Suite</div>
-              <div style={{ fontSize:12, color:C.textSub, marginTop:2 }}>GMPL's Primary ERP · {ZOHO_SUITE.region} · Org {zohoConnectorStatus.orgId}</div>
+              <div style={{ fontSize:12, color:C.textSub, marginTop:2 }}>MSG's Primary ERP · {ZOHO_SUITE.region} · Org {zohoConnectorStatus.orgId}</div>
               <div style={{ fontSize:11, color:C.textMuted, marginTop:3 }}>{ZOHO_SUITE.description}</div>
             </div>
           </div>

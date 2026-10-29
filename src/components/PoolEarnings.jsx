@@ -3,12 +3,12 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { POOL_EARNINGS } from '../data/seed.js'
 import { C, Card, HeroCard, SectionLabel, GoldButton, Badge, tooltipStyle } from './ui.jsx'
 
-// ─── CSV PARSER — Maersk Tankers / Hafnia format ─────────────────────────────
+// ─── CSV PARSER — Northstar Tankers / Polaris format ─────────────────────────────
 function parsePoolCSV(text, pool) {
   const lines = text.trim().split('\n').map(l => l.split(',').map(c => c.replace(/"/g,'').trim()))
   const result = { pool, rows:[], raw:lines }
 
-  // Auto-detect Maersk Tankers format
+  // Auto-detect Northstar Tankers format
   // Expected columns: Vessel, Period, Gross Earnings, Deductions, Net Earnings, Pool Points, TCE
   const header = lines[0].map(h => h.toLowerCase())
   const colIdx = (names) => names.map(n => header.findIndex(h => h.includes(n))).find(i => i >= 0) ?? -1
@@ -39,36 +39,36 @@ function parsePoolCSV(text, pool) {
 
 // Trend data from seed
 const trendData = [
-  { period:'Jan-26', maersk:19800, hafnia:18900 },
-  { period:'Feb-26', maersk:20400, hafnia:19200 },
-  { period:'Mar-26', maersk:20700, hafnia:19400 },
-  { period:'Apr-26', maersk:21280, hafnia:19940 },
+  { period:'Jan-26', northstar:19800, polaris:18900 },
+  { period:'Feb-26', northstar:20400, polaris:19200 },
+  { period:'Mar-26', northstar:20700, polaris:19400 },
+  { period:'Apr-26', northstar:21280, polaris:19940 },
 ]
 
 export default function PoolEarnings() {
   const [earnings,  setEarnings]  = useState(POOL_EARNINGS)
   const [uploading, setUploading] = useState(false)
   const [parsed,    setParsed]    = useState(null)
-  const [pool,      setPool]      = useState('maersk')
+  const [pool,      setPool]      = useState('northstar')
   const [dragOver,  setDragOver]  = useState(false)
   const [pdfFiles,  setPdfFiles]  = useState([])
   const [showApiDocs, setShowApiDocs] = useState(false)
 
-  const totalNetMaersk = earnings.filter(e=>e.pool==='Maersk Tankers').reduce((s,e)=>s+e.netEarnings, 0)
-  const totalNetHafnia  = earnings.filter(e=>e.pool==='Hafnia').reduce((s,e)=>s+e.netEarnings, 0)
+  const totalNetNorthstar = earnings.filter(e=>e.pool==='Northstar Tankers').reduce((s,e)=>s+e.netEarnings, 0)
+  const totalNetPolaris  = earnings.filter(e=>e.pool==='Polaris').reduce((s,e)=>s+e.netEarnings, 0)
   const avgTCE = Math.round(earnings.reduce((s,e)=>s+e.tce,0)/earnings.length)
 
   const handleCSV = useCallback((file) => {
     const reader = new FileReader()
     reader.onload = e => {
-      const result = parsePoolCSV(e.target.result, pool==='maersk'?'Maersk Tankers':'Hafnia')
+      const result = parsePoolCSV(e.target.result, pool==='northstar'?'Northstar Tankers':'Polaris')
       setParsed(result)
     }
     reader.readAsText(file)
   }, [pool])
 
   const handlePDF = useCallback((file) => {
-    setPdfFiles(prev => [...prev, { name:file.name, size:(file.size/1024).toFixed(0)+'KB', date:new Date().toLocaleDateString(), pool:pool==='maersk'?'Maersk Tankers':'Hafnia' }])
+    setPdfFiles(prev => [...prev, { name:file.name, size:(file.size/1024).toFixed(0)+'KB', date:new Date().toLocaleDateString(), pool:pool==='northstar'?'Northstar Tankers':'Polaris' }])
   }, [pool])
 
   function onDrop(e, type) {
@@ -106,8 +106,8 @@ export default function PoolEarnings() {
         <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:14 }}>POOL EARNINGS — MONTHLY STATEMENT DATA</div>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(170px,1fr))', gap:10 }}>
           {[
-            { l:'Maersk Tankers Net (MTD)',  v:`$${(totalNetMaersk/1000).toFixed(0)}K`,  c:C.gold  },
-            { l:'Hafnia Pool Net (Apr)',      v:`$${(totalNetHafnia/1000).toFixed(0)}K`,  c:C.blue  },
+            { l:'Northstar Tankers Net (MTD)',  v:`$${(totalNetNorthstar/1000).toFixed(0)}K`,  c:C.gold  },
+            { l:'Polaris Pool Net (Apr)',      v:`$${(totalNetPolaris/1000).toFixed(0)}K`,  c:C.blue  },
             { l:'Average Pool TCE',           v:`$${avgTCE.toLocaleString()}/day`,        c:C.green },
             { l:'Statements on File',         v:String(earnings.length),                  c:C.text  },
           ].map(k=>(
@@ -121,15 +121,15 @@ export default function PoolEarnings() {
 
       {/* TCE trend */}
       <Card>
-        <SectionLabel accent>Pool TCE Trend — Maersk Tankers vs Hafnia (USD/day)</SectionLabel>
+        <SectionLabel accent>Pool TCE Trend — Northstar Tankers vs Polaris (USD/day)</SectionLabel>
         <ResponsiveContainer width="100%" height={180}>
           <LineChart data={trendData} margin={{top:4,right:8,left:-10,bottom:0}}>
             <CartesianGrid strokeDasharray="3 3" stroke={C.border}/>
             <XAxis dataKey="period" tick={{fill:C.textMuted,fontSize:11}}/>
             <YAxis tick={{fill:C.textMuted,fontSize:11}} tickFormatter={v=>'$'+v.toLocaleString()}/>
             <Tooltip {...tooltipStyle} formatter={v=>['$'+v.toLocaleString()+'/day']}/>
-            <Line type="monotone" dataKey="maersk" stroke={C.gold}  strokeWidth={2.5} dot={{fill:C.gold,r:4}}  name="Maersk Tankers"/>
-            <Line type="monotone" dataKey="hafnia"  stroke={C.blue}  strokeWidth={2.5} dot={{fill:C.blue,r:4}}  name="Hafnia Pool"/>
+            <Line type="monotone" dataKey="northstar" stroke={C.gold}  strokeWidth={2.5} dot={{fill:C.gold,r:4}}  name="Northstar Tankers"/>
+            <Line type="monotone" dataKey="polaris"  stroke={C.blue}  strokeWidth={2.5} dot={{fill:C.blue,r:4}}  name="Polaris Pool"/>
           </LineChart>
         </ResponsiveContainer>
       </Card>
@@ -138,7 +138,7 @@ export default function PoolEarnings() {
       <Card>
         <SectionLabel accent>Upload Pool Statement</SectionLabel>
         <div style={{ display:'flex', gap:8, marginBottom:14 }}>
-          {[{k:'maersk',l:'Maersk Tankers'},{k:'hafnia',l:'Hafnia Pool'}].map(p=>(
+          {[{k:'northstar',l:'Northstar Tankers'},{k:'polaris',l:'Polaris Pool'}].map(p=>(
             <button key={p.k} onClick={()=>setPool(p.k)} style={{
               flex:1, padding:'8px', borderRadius:8, fontSize:12, fontWeight:600,
               background:pool===p.k?C.card:'transparent',
@@ -158,7 +158,7 @@ export default function PoolEarnings() {
               <input id="csv-input" type="file" accept=".csv" style={{ display:'none' }} onChange={e=>e.target.files[0]&&handleCSV(e.target.files[0])}/>
               <div style={{ fontSize:24, marginBottom:8 }}>📊</div>
               <div style={{ fontSize:12, color:C.textSub }}>Drop CSV or click to browse</div>
-              <div style={{ fontSize:10, color:C.textMuted, marginTop:4 }}>Maersk & Hafnia CSV format supported</div>
+              <div style={{ fontSize:10, color:C.textMuted, marginTop:4 }}>Northstar & Polaris CSV format supported</div>
             </div>
           </div>
 
@@ -274,7 +274,7 @@ export default function PoolEarnings() {
       <div style={{ background:C.cardAlt, border:`1px solid ${C.blue}33`, borderRadius:10, padding:'14px 18px' }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:showApiDocs?14:0 }}>
           <div>
-            <div style={{ fontSize:13, fontWeight:700, color:C.blue, marginBottom:2 }}>⊕ Future API Integration — Maersk Tankers &amp; Hafnia</div>
+            <div style={{ fontSize:13, fontWeight:700, color:C.blue, marginBottom:2 }}>⊕ Future API Integration — Northstar Tankers &amp; Polaris</div>
             <div style={{ fontSize:12, color:C.textMuted }}>When pool operators provide API access, replace manual upload with live data feed</div>
           </div>
           <GoldButton outline onClick={()=>setShowApiDocs(!showApiDocs)} style={{ flexShrink:0, fontSize:11 }}>
@@ -284,17 +284,17 @@ export default function PoolEarnings() {
         {showApiDocs && (
           <div style={{ background:C.card, borderRadius:8, padding:'14px', fontFamily:'DM Mono, monospace', fontSize:11, color:C.textSub, lineHeight:1.9 }}>
             <div style={{ color:C.gold, fontWeight:700, marginBottom:8 }}>// Step 1 — Obtain API credentials from pool operator</div>
-            <div>// Maersk Tankers: Request API access via partner portal at partners.maersktankers.com</div>
-            <div>// Hafnia: Request via commercial contact — API available for pool members</div>
+            <div>// Northstar Tankers: Request API access via partner portal at partners.northstar-tankers.example</div>
+            <div>// Polaris: Request via commercial contact — API available for pool members</div>
             <div style={{ color:C.gold, fontWeight:700, marginTop:12, marginBottom:8 }}>// Step 2 — Add to .env</div>
-            <div>VITE_MAERSK_POOL_API_KEY=your_key_here</div>
-            <div>VITE_MAERSK_POOL_VESSEL_ID=your_vessel_id</div>
-            <div>VITE_HAFNIA_POOL_API_KEY=your_key_here</div>
+            <div>VITE_NORTHSTAR_POOL_API_KEY=your_key_here</div>
+            <div>VITE_NORTHSTAR_POOL_VESSEL_ID=your_vessel_id</div>
+            <div>VITE_POLARIS_POOL_API_KEY=your_key_here</div>
             <div style={{ color:C.gold, fontWeight:700, marginTop:12, marginBottom:8 }}>// Step 3 — Replace CSV upload with live fetch in src/lib/poolApi.js</div>
-            <div>{'export async function fetchMaerskEarnings(vesselId, period) {'}</div>
+            <div>{'export async function fetchNorthstarEarnings(vesselId, period) {'}</div>
             <div>{'  const res = await fetch('}</div>
-            <div>{'    `https://api.maersktankers.com/v1/pool/earnings?vessel=${vesselId}&period=${period}`,'}</div>
-            <div>{'    { headers: { Authorization: `Bearer ${import.meta.env.VITE_MAERSK_POOL_API_KEY}` } }'}</div>
+            <div>{'    `https://api.northstar-tankers.example/v1/pool/earnings?vessel=${vesselId}&period=${period}`,'}</div>
+            <div>{'    { headers: { Authorization: `Bearer ${import.meta.env.VITE_NORTHSTAR_POOL_API_KEY}` } }'}</div>
             <div>{'  )'}</div>
             <div>{'  return res.json() // Returns same structure as CSV parser output'}</div>
             <div>{'}'}</div>

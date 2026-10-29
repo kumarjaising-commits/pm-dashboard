@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════════════════════
--- GOODEARTH MARITIME — SUPABASE DATABASE SCHEMA
+-- MERIDIAN SHIPPING — SUPABASE DATABASE SCHEMA
 -- Run this entire script in: Supabase Dashboard → SQL Editor → New Query → Run
 -- ═══════════════════════════════════════════════════════════════════════════
 
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS legal_matters (
   id            TEXT PRIMARY KEY,
   type          TEXT,
   party         TEXT,
-  gmpl_position TEXT DEFAULT 'Respondent',
+  company_position TEXT DEFAULT 'Respondent',
   exposure      NUMERIC DEFAULT 0,
   next_date     DATE,
   next_event    TEXT,
@@ -247,19 +247,19 @@ BEGIN
 END $$;
 
 -- ═══════════════════════════════════════════════════════════════════════════
--- SEED — Goodearth real fleet (matches seed.js)
+-- SEED — Meridian real fleet (matches seed.js)
 -- ═══════════════════════════════════════════════════════════════════════════
 INSERT INTO vessels (id,name,type,flag,utilisation,target_util,status,position,route,crew,defects,cert_status,dwt,built,class_society,imo,day_rate,voyage_days,pl_mtd,commercial_mode,pool_name,charterer,tc_rate,tc_start,tc_end,acquired,lat,lng,note)
 VALUES
-('V001','MT Prelude','MR Product Tanker','Marshall Islands',88,85,'amber','Arabian Gulf','Fujairah → Jubail',24,1,'ok',47200,2018,'DNV','9823041',20400,12,214000,'pool','Hafnia Pool → Maersk Tankers Pool',NULL,NULL,NULL,NULL,'Aug 2025',25.5,56.1,'Transferring from Hafnia to Maersk Tankers Pool'),
-('V002','MT Anael','MR Product Tanker','Marshall Islands',95,88,'green','Red Sea','Jeddah → Suez',23,0,'ok',46800,2019,'BV','9871234',19500,18,312000,'tc',NULL,'Trafigura Pte Ltd',19500,'2026-01-15','2027-01-14','Jan 2026',22.5,38.2,'Time Charter to Trafigura Pte Ltd at $19,500/day until Jan 2027'),
-('V003','MT Nura Kara','MR Product Tanker','Malta',92,88,'green','Persian Gulf','Ras Tanura → Hamriyah',24,2,'ok',47500,2017,'LR','9756123',21200,8,298000,'pool','Maersk Tankers Pool',NULL,NULL,NULL,NULL,'Mar 2026',26.8,50.8,'Operating in Maersk Tankers Pool'),
-('V004','MT Nura Bright','MR Product Tanker','Malta',82,80,'green','Gulf of Oman','Hamriyah → Mumbai',23,1,'ok',46500,2020,'DNV','9912345',0,14,178000,'captive',NULL,'Goodearth Captive Cargoes',NULL,NULL,NULL,NULL,'Apr 2026',23.2,59.1,'Dedicated captive cargo operations'),
-('B001','Cosmos 1','Inland River Barge','India',90,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,0,'ok',2100,2024,'IACS','N/A',0,0,42000,'captive',NULL,'Goodearth Internal',NULL,NULL,NULL,NULL,'2024',15.5,73.8,'2100 MT class IACS. Captive operations.'),
-('B002','Cosmos 2','Inland River Barge','India',88,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,0,'ok',2100,2024,'IACS','N/A',0,0,40000,'captive',NULL,'Goodearth Internal',NULL,NULL,NULL,NULL,'2024',15.48,73.82,'2100 MT class IACS. Captive operations.'),
-('B003','Cosmos 3','Inland River Barge','India',85,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,1,'ok',2100,2025,'IACS','N/A',0,0,38000,'captive',NULL,'Goodearth Internal',NULL,NULL,NULL,NULL,'2025',15.46,73.84,'2100 MT class IACS. Captive operations.'),
-('B004','Cosmos 4','Inland River Barge','India',82,85,'amber','Mandovi River, Goa','Captive — Internal Cargo',8,2,'ok',2100,2025,'IACS','N/A',0,0,35000,'captive',NULL,'Goodearth Internal',NULL,NULL,NULL,NULL,'2025',15.44,73.86,'2100 MT class IACS. Captive operations.'),
-('B005','Cosmos 5','Inland River Barge','India',78,85,'amber','Mandovi River, Goa','Captive — Internal Cargo',8,0,'warning',2100,2026,'IACS','N/A',0,0,28000,'captive',NULL,'Goodearth Internal',NULL,NULL,NULL,NULL,'2026',15.42,73.88,'Newest vessel — 2026 build. Cert renewal required.')
+('V001','MT Aurora','MR Product Tanker','Marshall Islands',88,85,'amber','Arabian Gulf','Fujairah → Jubail',24,1,'ok',47200,2018,'DNV','9000001',20400,12,214000,'pool','Polaris Pool → Northstar Tankers Pool',NULL,NULL,NULL,NULL,'Aug 2025',25.5,56.1,'Transferring from Polaris to Northstar Tankers Pool'),
+('V002','MT Boreas','MR Product Tanker','Marshall Islands',95,88,'green','Red Sea','Jeddah → Suez',23,0,'ok',46800,2019,'BV','9000002',19500,18,312000,'tc',NULL,'Atlas Commodities Pte Ltd',19500,'2026-01-15','2027-01-14','Jan 2026',22.5,38.2,'Time Charter to Atlas Commodities Pte Ltd at $19,500/day until Jan 2027'),
+('V003','MT Calypso','MR Product Tanker','Malta',92,88,'green','Persian Gulf','Ras Tanura → Sharjah',24,2,'ok',47500,2017,'LR','9000003',21200,8,298000,'pool','Northstar Tankers Pool',NULL,NULL,NULL,NULL,'Mar 2026',26.8,50.8,'Operating in Northstar Tankers Pool'),
+('V004','MT Delphine','MR Product Tanker','Malta',82,80,'green','Gulf of Oman','Sharjah → Mumbai',23,1,'ok',46500,2020,'DNV','9000004',0,14,178000,'captive',NULL,'Meridian Captive Cargoes',NULL,NULL,NULL,NULL,'Apr 2026',23.2,59.1,'Dedicated captive cargo operations'),
+('B001','Orion 1','Inland River Barge','India',90,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,0,'ok',2100,2024,'IACS','N/A',0,0,42000,'captive',NULL,'Meridian Internal',NULL,NULL,NULL,NULL,'2024',15.5,73.8,'2100 MT class IACS. Captive operations.'),
+('B002','Orion 2','Inland River Barge','India',88,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,0,'ok',2100,2024,'IACS','N/A',0,0,40000,'captive',NULL,'Meridian Internal',NULL,NULL,NULL,NULL,'2024',15.48,73.82,'2100 MT class IACS. Captive operations.'),
+('B003','Orion 3','Inland River Barge','India',85,85,'green','Mandovi River, Goa','Captive — Internal Cargo',8,1,'ok',2100,2025,'IACS','N/A',0,0,38000,'captive',NULL,'Meridian Internal',NULL,NULL,NULL,NULL,'2025',15.46,73.84,'2100 MT class IACS. Captive operations.'),
+('B004','Orion 4','Inland River Barge','India',82,85,'amber','Mandovi River, Goa','Captive — Internal Cargo',8,2,'ok',2100,2025,'IACS','N/A',0,0,35000,'captive',NULL,'Meridian Internal',NULL,NULL,NULL,NULL,'2025',15.44,73.86,'2100 MT class IACS. Captive operations.'),
+('B005','Orion 5','Inland River Barge','India',78,85,'amber','Mandovi River, Goa','Captive — Internal Cargo',8,0,'warning',2100,2026,'IACS','N/A',0,0,28000,'captive',NULL,'Meridian Internal',NULL,NULL,NULL,NULL,'2026',15.42,73.88,'Newest vessel — 2026 build. Cert renewal required.')
 ON CONFLICT (id) DO UPDATE SET
   utilisation=EXCLUDED.utilisation, position=EXCLUDED.position,
   route=EXCLUDED.route, pl_mtd=EXCLUDED.pl_mtd,

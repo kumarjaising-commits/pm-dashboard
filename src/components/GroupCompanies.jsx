@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GROUP_ENTITIES, NURA_CHARTERS, VESSELS, SHIPPING_PARTNERS, FLEET_GROWTH } from '../data/seed.js'
+import { GROUP_ENTITIES, FLEET_CHARTERS, VESSELS, SHIPPING_PARTNERS, FLEET_GROWTH } from '../data/seed.js'
 import { C, Card, HeroCard, SectionLabel, GoldButton, Badge, StatusDot } from './ui.jsx'
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -18,9 +18,9 @@ export default function GroupCompanies() {
 
       {/* Org chart */}
       <HeroCard>
-        <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:16 }}>GOODEARTH MARITIME — CORPORATE STRUCTURE</div>
+        <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:16 }}>MERIDIAN SHIPPING — CORPORATE STRUCTURE</div>
 
-        {/* Level 1 — GMPL */}
+        {/* Level 1 — MSG */}
         <div style={{ display:'flex', justifyContent:'center', marginBottom:0 }}>
           <EntityBox entity={GROUP_ENTITIES[0]} active={activeEntity?.id===GROUP_ENTITIES[0].id} onTap={setActiveEntity} wide/>
         </div>
@@ -29,7 +29,7 @@ export default function GroupCompanies() {
           <div style={{ width:2, height:24, background:C.border }}/>
         </div>
 
-        {/* Level 2 — NIS */}
+        {/* Level 2 — MIH */}
         <div style={{ display:'flex', justifyContent:'center', marginBottom:0 }}>
           <EntityBox entity={level2[0]} active={activeEntity?.id===level2[0].id} onTap={setActiveEntity} wide/>
         </div>
@@ -196,7 +196,7 @@ export default function GroupCompanies() {
       <Card>
         <SectionLabel accent>Charter Contracts — All Entities</SectionLabel>
         <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
-          {NURA_CHARTERS.map(cp => (
+          {FLEET_CHARTERS.map(cp => (
             <div key={cp.id} style={{ background:C.cardAlt, borderRadius:10, padding:'14px 16px', border:`1px solid ${cp.paymentStatus==='Overdue'?C.red+'44':C.border}`, borderLeft:`3px solid ${cp.paymentStatus==='Overdue'?C.red:cp.type==='Time Charter'?C.green:cp.type==='Pool Agreement'?C.gold:C.blue}` }}>
               <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:10, marginBottom:10 }}>
                 <div>

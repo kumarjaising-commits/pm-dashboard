@@ -1,7 +1,7 @@
 # Supabase Setup — Step-by-Step
 
 ## What you are setting up
-A PostgreSQL database hosted by Supabase that stores all Goodearth Maritime fleet data, deals, and financials. Once connected, the Chairman's dashboard reads live from this database and the Advisor Admin Portal writes to it in real time.
+A PostgreSQL database hosted by Supabase that stores all Meridian Shipping fleet data, deals, and financials. Once connected, the Chairman's dashboard reads live from this database and the Advisor Admin Portal writes to it in real time.
 
 ---
 
@@ -15,8 +15,8 @@ A PostgreSQL database hosted by Supabase that stores all Goodearth Maritime flee
 ## Step 2 — Create a New Project
 1. Once logged in, click **New Project**
 2. Fill in:
-   - **Organisation**: Create one (e.g. "Goodearth Maritime")
-   - **Project Name**: `gmpl-dashboard`
+   - **Organisation**: Create one (e.g. "Meridian Shipping")
+   - **Project Name**: `pm-dashboard`
    - **Database Password**: Choose a strong password and **save it securely**
    - **Region**: Select **Singapore** (closest to Dubai for low latency)
 3. Click **Create new project**
@@ -47,7 +47,7 @@ A PostgreSQL database hosted by Supabase that stores all Goodearth Maritime flee
 ## Step 5 — Add Keys to the Dashboard
 
 ### For local development:
-1. In the `gmpl-dashboard` folder, create a file called `.env` (no extension)
+1. In the `pm-dashboard` folder, create a file called `.env` (no extension)
 2. Add these two lines (replace with your actual values):
 ```
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
@@ -77,7 +77,7 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ## Step 7 — First Data Upload (Optional)
 Once connected:
 1. Go to Admin Portal → **Data Upload** tab
-2. Upload the completed `GMPL_Data_Template.xlsx`
+2. Upload the completed `MSG_Data_Template.xlsx`
 3. Click **Push to Dashboard**
 4. The Chairman's dashboard will immediately reflect the real fleet data
 
@@ -99,4 +99,4 @@ The `admin/admin` password is for **demo purposes only**. Before presenting to e
 
 ---
 
-*Goodearth Maritime · Confidential · Prepared by ATS Advisory · May 2026*
+*Meridian Shipping · Confidential · Prepared by ATS Advisory · May 2026*

@@ -4,9 +4,9 @@ import { BUNKERING, VESSELS } from '../data/seed.js'
 import { C, Card, HeroCard, SectionLabel, GoldButton, Badge, tooltipStyle } from './ui.jsx'
 
 const GRADES = ['VLSFO','ULSFO','MGO','MDO','LNG']
-const SUPPLIERS = ['ENOC Marine','Saudi Aramco Bunkers','Peninsula Petroleum','Shell Marine','BP Marine','Total Marine Fuels','Vivo Energy']
+const SUPPLIERS = ['Eastport Marine Fuels','Red Sea Bunkers','Cape Bunkers','Shell Marine','BP Marine','Total Marine Fuels','Vivo Energy']
 
-const EMPTY_ENTRY = { vessel:'MT Prelude', date:'', port:'', grade:'VLSFO', qty:'', pricePerTon:'', supplier:'ENOC Marine', terms:'30 days net', quality:'ISO 8217 RMG380', notes:'' }
+const EMPTY_ENTRY = { vessel:'MT Aurora', date:'', port:'', grade:'VLSFO', qty:'', pricePerTon:'', supplier:'Eastport Marine Fuels', terms:'30 days net', quality:'ISO 8217 RMG380', notes:'' }
 
 export default function BunkeringLog() {
   const [log,       setLog]      = useState(BUNKERING)

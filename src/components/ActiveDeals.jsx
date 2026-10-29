@@ -39,7 +39,7 @@ export default function ActiveDeals() {
       <HeroCard>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:14, marginBottom:20 }}>
           <div>
-            <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:4 }}>GOOD EARTH MARITIME — DEAL PIPELINE · MAY 2026</div>
+            <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:4 }}>MERIDIAN SHIPPING — DEAL PIPELINE · MAY 2026</div>
             <div style={{ fontFamily:"'Playfair Display',serif", fontSize:13, color:C.textSub }}>Active Deals · Acquisitions · Newbuildings · Financing</div>
           </div>
           <div style={{ display:'flex', gap:8 }}>

@@ -24,7 +24,7 @@ export default function Overview() {
       <HeroCard>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:16, marginBottom:20 }}>
           <div>
-            <div style={{ fontSize:10, fontWeight:600, color:C.gold, letterSpacing:'0.12em', marginBottom:4 }}>GOOD EARTH MARITIME — GROUP PERFORMANCE · MAY 2026</div>
+            <div style={{ fontSize:10, fontWeight:600, color:C.gold, letterSpacing:'0.12em', marginBottom:4 }}>MERIDIAN SHIPPING — GROUP PERFORMANCE · MAY 2026</div>
             <div style={{ fontFamily:"'Playfair Display', serif", fontSize:13, color:C.textSub }}>{getBriefingTitle(briefMode) + ' · ' + new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</div>
           </div>
           <div style={{ display:'flex', alignItems:'center', gap:8, background:C.greenDim, border:`1px solid ${C.green}44`, borderRadius:20, padding:'5px 14px' }}>

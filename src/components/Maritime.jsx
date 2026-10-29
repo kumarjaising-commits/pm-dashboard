@@ -57,7 +57,7 @@ export default function Maritime() {
 
       {/* Section toggle */}
       <div style={{ display:'flex', gap:4, background:C.cardAlt, border:`1px solid ${C.border}`, borderRadius:10, padding:4 }}>
-        {[{k:'tankers',l:'MR Product Tankers (4)',icon:'🚢'},{k:'barges',l:'Inland River Barges — Cosmos 1–5',icon:'⛵'}].map(t=>(
+        {[{k:'tankers',l:'MR Product Tankers (4)',icon:'🚢'},{k:'barges',l:'Inland River Barges — Orion 1–5',icon:'⛵'}].map(t=>(
           <button key={t.k} onClick={()=>{setSection(t.k);setSelected(null)}} style={{
             flex:1, padding:'9px', borderRadius:8, fontSize:12, fontWeight:600,
             background:section===t.k?C.card:'transparent',
@@ -69,7 +69,7 @@ export default function Maritime() {
 
       {/* Fleet table */}
       <Card>
-        <SectionLabel accent>{section==='tankers'?'MR Product Tanker Fleet — Commercial Overview':'Inland River Barge Fleet — Cosmos Series'}</SectionLabel>
+        <SectionLabel accent>{section==='tankers'?'MR Product Tanker Fleet — Commercial Overview':'Inland River Barge Fleet — Orion Series'}</SectionLabel>
         <div style={{ overflowX:'auto' }}>
           <table style={{ width:'100%', borderCollapse:'collapse', fontSize:13 }}>
             <thead>

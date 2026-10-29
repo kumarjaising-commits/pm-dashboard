@@ -8,7 +8,7 @@ import {
   VESSELS, VERTICALS, REVENUE_TREND, MARKET_DATA,
   CRITICAL_ITEMS, LEGAL_MATTERS, CERTIFICATES, RED_FLAGS,
   ACTIVE_DEALS, ALERTS, CONNECTORS, CREW_SIGNOFFS, HSE_KPI,
-  INSPECTIONS, NURA_CHARTERS
+  INSPECTIONS, FLEET_CHARTERS
 } from '../data/seed.js'
 import { chatWithAssistant } from '../lib/claude.js'
 
@@ -152,20 +152,20 @@ function SituationRoom({ onNavigate, now }) {
     ? { icon: '◎', label: 'Afternoon Pulse — 3 updates',         col: M.blue  }
     : { icon: '◑', label: 'Day in Review',                       col: M.amber }
   const briefItems = briefMode === 'morning' ? [
-    { c: M.red,   icon: '⚠', txt: 'MT Prelude IOPP certificate expires in 38 days — renewal survey required immediately' },
-    { c: M.amber, icon: '⚠', txt: 'Petrochemical Corp arbitration 14 Jun — Hill Dickinson briefing unconfirmed' },
+    { c: M.red,   icon: '⚠', txt: 'MT Aurora IOPP certificate expires in 38 days — renewal survey required immediately' },
+    { c: M.amber, icon: '⚠', txt: 'Horizon Petrochemicals arbitration 14 Jun — Ashford & Lane briefing unconfirmed' },
     { c: M.green, icon: '✓', txt: 'Fleet utilisation 87% — above 80% target for third consecutive month' },
     { c: M.blue,  icon: '↗', txt: 'Baltic Clean Tanker Index +1.8% — product tanker demand strengthening' },
   ] : briefMode === 'afternoon' ? [
-    { c: M.green, icon: '✓', txt: 'Hill Dickinson confirmed for 14 Jun — 10:42 AM' },
-    { c: M.green, icon: '↑', txt: 'Payment received: Nura Ship Mgmt $85K — 11:15 AM' },
-    { c: M.amber, icon: '⚠', txt: 'MT Prelude ETA shifted — now 6 Jun (was 4 Jun)' },
+    { c: M.green, icon: '✓', txt: 'Ashford & Lane confirmed for 14 Jun — 10:42 AM' },
+    { c: M.green, icon: '↑', txt: 'Payment received: Meridian Ship Mgmt $85K — 11:15 AM' },
+    { c: M.amber, icon: '⚠', txt: 'MT Aurora ETA shifted — now 6 Jun (was 4 Jun)' },
     { c: M.amber, icon: '○', txt: 'IOPP survey still unbooked — Day 2 unactioned' },
   ] : [
-    { c: M.green, icon: '✓', txt: 'Hill Dickinson briefing confirmed for 14 Jun' },
-    { c: M.green, icon: '✓', txt: '$85K payment received from Nura Ship Mgmt' },
+    { c: M.green, icon: '✓', txt: 'Ashford & Lane briefing confirmed for 14 Jun' },
+    { c: M.green, icon: '✓', txt: '$85K payment received from Meridian Ship Mgmt' },
     { c: M.amber, icon: '○', txt: 'IOPP survey booking — Day 2 unactioned' },
-    { c: M.amber, icon: '○', txt: 'Maersk pool alloc. — 3 days no response' },
+    { c: M.amber, icon: '○', txt: 'Northstar pool alloc. — 3 days no response' },
   ]
   const dateStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
   const timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
@@ -184,7 +184,7 @@ function SituationRoom({ onNavigate, now }) {
         <div style={{ fontSize: 11, fontWeight: 700, color: M.muted, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 4 }}>
           {greeting} — {dateStr} · {timeStr} {tzStr}
         </div>
-        <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 22, fontWeight: 600, color: M.text }}>Goodearth Maritime</div>
+        <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 22, fontWeight: 600, color: M.text }}>Meridian Shipping</div>
         <div style={{ fontSize: 12, color: M.sub, marginTop: 2 }}>Chairman's Intelligence Dashboard</div>
       </div>
 
@@ -702,7 +702,7 @@ function DealsTab() {
 }
 
 function MobileAssistant({ onClose }) {
-  const [messages, setMessages] = useState([{ role: 'assistant', content: "Good morning. Ask me anything about GMPL — fleet status, financials, legal matters, or active deals." }])
+  const [messages, setMessages] = useState([{ role: 'assistant', content: "Good morning. Ask me anything about MSG — fleet status, financials, legal matters, or active deals." }])
   const [input,    setInput]    = useState('')
   const [thinking, setThinking] = useState(false)
   const bottomRef = useRef(null)
@@ -726,14 +726,14 @@ function MobileAssistant({ onClose }) {
           <div style={{ width: 34, height: 34, background: `linear-gradient(135deg,${M.gold},#E8C97A)`, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: '#071120', fontWeight: 800 }}>✦</div>
           <div>
             <div style={{ fontSize: 14, fontWeight: 700, color: M.gold }}>Chairman's Assistant</div>
-            <div style={{ fontSize: 10, color: M.muted }}>AI-powered · Goodearth Maritime</div>
+            <div style={{ fontSize: 10, color: M.muted }}>AI-powered · Meridian Shipping</div>
           </div>
         </div>
         <button onClick={onClose} style={{ background: M.card, border: `1px solid ${M.border}`, color: M.muted, width: 32, height: 32, borderRadius: 16, fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
       </div>
       <div style={{ padding: '12px 16px', borderBottom: `1px solid ${M.border}`, flexShrink: 0 }}>
         <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
-          {['What needs my attention?', 'MT Prelude status?', 'Legal exposure?', 'Cash and receivables?', 'Pool earnings?'].map(q => (
+          {['What needs my attention?', 'MT Aurora status?', 'Legal exposure?', 'Cash and receivables?', 'Pool earnings?'].map(q => (
             <button key={q} onClick={() => setInput(q)} style={{ background: M.card, border: `1px solid ${M.border}`, color: M.sub, fontSize: 11, padding: '6px 12px', borderRadius: 20, whiteSpace: 'nowrap', fontFamily: 'inherit', flexShrink: 0 }}>{q}</button>
           ))}
         </div>
@@ -776,7 +776,7 @@ function MoreTab({ onNavigate }) {
     { k:'crewing',     icon:'◷', label:'Crewing',         sub:'Masters · Crew · Sign-offs' },
     { k:'inspections', icon:'✦', label:'Inspections',     sub:'PSC · SIRE · Oil Major' },
     { k:'hse',         icon:'⊕', label:'HSE',             sub:'Safety · LTIF · Actions' },
-    { k:'pool',        icon:'⊞', label:'Pool Earnings',   sub:'Maersk · Hafnia · TCE' },
+    { k:'pool',        icon:'⊞', label:'Pool Earnings',   sub:'Northstar · Polaris · TCE' },
     { k:'bunker',      icon:'⛽', label:'Bunkering',       sub:'ROB · Stems · Log' },
     { k:'awards',      icon:'🏆', label:'Awards',          sub:'Master of the Year' },
     { k:'zoho',        icon:'⊟', label:'Zoho ERP',        sub:'Books · Creator · Analytics' },
@@ -851,7 +851,7 @@ export default function MobileDashboard() {
       {alert && (
         <div style={{ background: `linear-gradient(90deg, #3D0A14, #5A0E1E)`, padding: '9px 16px', display: 'flex', alignItems: 'center', gap: 10, borderBottom: `1px solid ${M.red}44` }}>
           <span className="pulse-red" style={{ width: 7, height: 7, borderRadius: '50%', background: M.red, display: 'inline-block', flexShrink: 0 }}/>
-          <span style={{ fontSize: 12, color: '#FCA5A5', flex: 1, lineHeight: 1.4 }}>MT Prelude — IOPP Certificate expires in 38 days. Renewal survey required immediately.</span>
+          <span style={{ fontSize: 12, color: '#FCA5A5', flex: 1, lineHeight: 1.4 }}>MT Aurora — IOPP Certificate expires in 38 days. Renewal survey required immediately.</span>
           <button onClick={() => setAlert(false)} style={{ background: 'none', border: 'none', color: '#FCA5A5', fontSize: 20, lineHeight: 1, flexShrink: 0, padding: '0 4px' }}>×</button>
         </div>
       )}

@@ -1,4 +1,4 @@
-# GMPL Chairman's Executive Intelligence Dashboard
+# MSG Chairman's Executive Intelligence Dashboard
 ## UI/UX Specification — Claude Code Build Brief
 **Version 1.0 — May 2026 | Prepared by KJ | Confidential**
 
@@ -6,9 +6,9 @@
 
 ## 1. Project Context
 
-This document is the complete UI/UX specification for the Good Earth Maritime Private Limited (GMPL) Chairman's Executive Intelligence Dashboard. It covers design system, layout, component behaviour, and responsive rules across three target devices. This brief is written for Claude Code and should be treated as the single source of truth for all frontend decisions.
+This document is the complete UI/UX specification for the Meridian Shipping Group (MSG) Chairman's Executive Intelligence Dashboard. It covers design system, layout, component behaviour, and responsive rules across three target devices. This brief is written for Claude Code and should be treated as the single source of truth for all frontend decisions.
 
-The dashboard serves one primary user: the Chairman of Archean Group / GMPL. He accesses it across three contexts with three distinct needs:
+The dashboard serves one primary user: the Chairman of Meridian Group / MSG. He accesses it across three contexts with three distinct needs:
 
 | Device | Context | Job to be Done |
 |--------|---------|----------------|
@@ -153,7 +153,7 @@ Position: fixed left, full height
 
 Sections:
   ━━━━━━━━━━━━━━━━━━━━
-  [GMPL Logo + "Chairman"]
+  [MSG Logo + "Chairman"]
   ━━━━━━━━━━━━━━━━━━━━
   GROUP
     ◉  Overview
@@ -231,7 +231,7 @@ Navigation is contextual:
 │  AI BRIEFING                │  ← Section label, --font-ui, --text-gold
 │  ─────────────────────────  │
 │  "3 vessels on voyage.      │  ← 3–4 sentences, --font-body
-│   MT Nura Bright flagged    │
+│   MT Delphine flagged    │
 │   for cert expiry in 12     │
 │   days. BDI up 4% this wk." │
 │                             │
@@ -248,16 +248,16 @@ Navigation is contextual:
 ├─────────────────────────────┤
 │  NEEDS ATTENTION            │  ← Section label
 │  ┌─────────────────────────┐│
-│  │ 🔴 MT Nura Bright cert  ││  ← Tappable row, chevron right
+│  │ 🔴 MT Delphine cert  ││  ← Tappable row, chevron right
 │  │    expires in 12 days   ││
 │  └─────────────────────────┘│
 │  ┌─────────────────────────┐│
 │  │ 🟡 Bunker stem overdue  ││
-│  │    MT Anael — Mumbai    ││
+│  │    MT Boreas — Mumbai    ││
 │  └─────────────────────────┘│
 │  ┌─────────────────────────┐│
 │  │ 🔴 PSC deficiency open  ││
-│  │    MT Prelude — 18 days ││
+│  │    MT Aurora — 18 days ││
 │  └─────────────────────────┘│
 ├─────────────────────────────┤
 │  MARKET                     │  ← 5 horizontal scrollable pills
@@ -325,11 +325,11 @@ Navigation is contextual:
 ├──────┬──────────────┬────────┬────────┬──────┬──────┤
 │Status│Vessel        │Type    │Position│TCE/d │Util% │
 ├──────┼──────────────┼────────┼────────┼──────┼──────┤
-│ 🟢  │MT Prelude    │MR Tkr  │STS     │$18.2K│ 94% │
-│ 🟡  │MT Anael      │MR Tkr  │Waiting │$15.1K│ 78% │
-│ 🟢  │MT Nura Kara  │MR Tkr  │Laden   │$19.4K│ 97% │
-│ 🔴  │MT Nura Bright│MR Tkr  │Port    │$0    │  0% │
-│ 🟢  │Cosmos 1      │Barge   │River   │–     │ 88% │
+│ 🟢  │MT Aurora    │MR Tkr  │STS     │$18.2K│ 94% │
+│ 🟡  │MT Boreas      │MR Tkr  │Waiting │$15.1K│ 78% │
+│ 🟢  │MT Calypso  │MR Tkr  │Laden   │$19.4K│ 97% │
+│ 🔴  │MT Delphine│MR Tkr  │Port    │$0    │  0% │
+│ 🟢  │Orion 1      │Barge   │River   │–     │ 88% │
 │ ... │              │        │        │      │      │
 └──────┴──────────────┴────────┴────────┴──────┴──────┘
 [Map toggle ↗] [Chart view ↗]
@@ -339,14 +339,14 @@ Tapping any vessel row opens a bottom sheet — the vessel card:
 
 ```
 ┌─────────────────────────────────┐
-│ MT NURA BRIGHT          🔴 IDLE │
+│ MT DELPHINE          🔴 IDLE │
 │ MR Product Tanker · 45,000 DWT  │
 ├─────────────────────────────────┤
 │ Current voyage:  —              │
 │ Last port:       Fujairah        │
 │ Open defects:    3 (1 critical) │
 │ Cert expiry:     12 days 🔴     │
-│ P&I insurer:     UK P&I Club    │
+│ P&I insurer:     Harbour P&I Club    │
 │ Commercial mode: Captive        │
 ├─────────────────────────────────┤
 │ [View full vessel brief →]      │
@@ -372,11 +372,11 @@ Tapping any vessel row opens a bottom sheet — the vessel card:
 │                           │  Total open    21                      │
 ├───────────────────────────┴────────────────────────────────────────┤
 │                                                                    │
-│  🔴  CERTIFICATE EXPIRY — MT Nura Bright DOC Cert        12 days  │
+│  🔴  CERTIFICATE EXPIRY — MT Delphine DOC Cert        12 days  │
 │      Target: Renewed before expiry | Actual: Pending renewal       │
 │      Owner: Technical Supt.  [Raise query] [Mark resolved]         │
 │                                                                    │
-│  🔴  PSC DEFICIENCY OPEN — MT Prelude, Fujairah Port     18 days  │
+│  🔴  PSC DEFICIENCY OPEN — MT Aurora, Fujairah Port     18 days  │
 │      Target: Close within 14 days | Actual: Response pending       │
 │      Owner: Fleet Manager    [Raise query] [Mark resolved]         │
 │                                                                    │
@@ -384,7 +384,7 @@ Tapping any vessel row opens a bottom sheet — the vessel card:
 │      Target: 30-day terms | Actual: 61 days overdue                │
 │      Owner: Finance Mgr.     [Raise query] [Mark resolved]         │
 │                                                                    │
-│  🟡  BUNKER STEM PENDING — MT Anael, Mumbai              3 days   │
+│  🟡  BUNKER STEM PENDING — MT Boreas, Mumbai              3 days   │
 │      ... (etc)                                                     │
 └────────────────────────────────────────────────────────────────────┘
 ```
@@ -653,4 +653,4 @@ Before considering any screen complete, verify:
 ---
 
 *Document owner: KJ | For internal build use only | Not for client distribution*
-*Dashboard live reference: https://gmpl-dashboard.vercel.app/*
+*Dashboard live reference: https://your-deployment.vercel.app/*

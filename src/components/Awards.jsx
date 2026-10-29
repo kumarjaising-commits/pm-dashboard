@@ -44,7 +44,7 @@ export default function Awards() {
 
       {/* Header */}
       <HeroCard>
-        <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:14 }}>GOODEARTH MARITIME · ANNUAL EXCELLENCE AWARDS · 2026</div>
+        <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.12em', marginBottom:14 }}>MERIDIAN SHIPPING · ANNUAL EXCELLENCE AWARDS · 2026</div>
         <div style={{ display:'flex', gap:10, marginBottom:16 }}>
           {[{k:'master',l:'Best Master of the Year'},{k:'crew',l:'Best Crew of the Year'}].map(t=>(
             <button key={t.k} onClick={()=>setTab(t.k)} style={{
@@ -85,7 +85,7 @@ export default function Awards() {
             </div>
           ))}
           <div style={{ fontSize:11, color:C.textMuted, padding:'8px 14px' }}>
-            Total: {maxScore} points · Minimum qualifying tenure: 4 months on Goodearth vessel in award year · Criteria based on OCIMF, INTERTANKO, and flag state best practice
+            Total: {maxScore} points · Minimum qualifying tenure: 4 months on Meridian vessel in award year · Criteria based on OCIMF, INTERTANKO, and flag state best practice
           </div>
         </div>
       </Card>
@@ -164,7 +164,7 @@ export default function Awards() {
 
       {/* Note */}
       <div style={{ background:C.cardAlt, border:`1px solid ${C.border}`, borderRadius:8, padding:'12px 16px', fontSize:12, color:C.textMuted }}>
-        ✦ Scores are advisory inputs — Chairman retains final decision on award. Criteria aligned to OCIMF TMSA, INTERTANKO best practice, and Goodearth internal standards. Minimum qualifying tenure 4 months in award year.
+        ✦ Scores are advisory inputs — Chairman retains final decision on award. Criteria aligned to OCIMF TMSA, INTERTANKO best practice, and Meridian internal standards. Minimum qualifying tenure 4 months in award year.
       </div>
     </div>
   )

@@ -1,36 +1,36 @@
-# GMPL Dashboard Data Reference
+# MSG Dashboard Data Reference
 
-This file captures the core GMPL dashboard data model from `src/data/seed.js` and the mock Zoho connector data in `src/lib/zoho.js`.
+This file captures the core MSG dashboard data model from `src/data/seed.js` and the mock Zoho connector data in `src/lib/zoho.js`.
 
 ## Source Files
-- `src/data/seed.js` — primary seeded dashboard data for Goodearth Maritime Private Limited (GMPL)
+- `src/data/seed.js` — primary seeded dashboard data for Meridian Shipping Group (MSG)
 - `src/lib/zoho.js` — mock Zoho Finance Suite connector data for live/demo mode
 
-## Key GMPL Data Sections
+## Key MSG Data Sections
 
 ### 1. Corporate Structure
 - `GROUP_ENTITIES`
-  - Parent holding company: `gmpl`
-  - Intermediate holding: `nis` (Nura International Shipping Pte Ltd)
-  - Ship management: `nsm` (Nura ShipCo Management Pte Ltd)
-  - Ship owning SPV: `nura_shipco`
-  - Dedicated vessel SPVs: `nura_kara_spv`, `nura_bright_spv`
+  - Parent holding company: `meridian`
+  - Intermediate holding: `nis` (Meridian International Holdings Pte Ltd)
+  - Ship management: `nsm` (Meridian Ship Management Pte Ltd)
+  - Ship owning SPV: `meridian_shipco`
+  - Dedicated vessel SPVs: `calypso_spv`, `delphine_spv`
   - Each entity includes: `id`, `name`, `short`, `type`, `jurisdiction`, `role`, `level`, `parentId`, vessel assignments, P&L summary, establishment year, color, dormant state
 
 ### 2. Charter and Commercial Data
-- `NURA_CHARTERS`
-  - Time charter: `MT Anael` to Trafigura Pte Ltd at $19,500/day
-  - Pool agreements: `MT Prelude` and `MT Nura Kara`
-  - Captive cargo: `MT Nura Bright`
+- `FLEET_CHARTERS`
+  - Time charter: `MT Boreas` to Atlas Commodities Pte Ltd at $19,500/day
+  - Pool agreements: `MT Aurora` and `MT Calypso`
+  - Captive cargo: `MT Delphine`
   - Each charter includes: `id`, `vessel`, `charterer`, `type`, `rate`, `currency`, `start`, `end`, `status`, `paymentStatus`, `netTCE`, `nextHire`, `notes`
 
 - `SHIPPING_PARTNERS`
-  - Pool operators, charterers, insurers, and partners such as Maersk Tankers, Hafnia, Trafigura, UK P&I Club, Skuld, Norwegian Hull Club, Gard
+  - Pool operators, charterers, insurers, and partners such as Northstar Tankers, Polaris, Atlas Commodities, Harbour P&I Club, Nordic Mutual, Fjord Hull Club, Bergen Marine
 
 ### 3. Fleet and Vessel Data
 - `VESSELS`
-  - Four MR product tankers: `MT Prelude`, `MT Anael`, `MT Nura Kara`, `MT Nura Bright`
-  - Five inland river barges: `Cosmos 1` through `Cosmos 5`
+  - Four MR product tankers: `MT Aurora`, `MT Boreas`, `MT Calypso`, `MT Delphine`
+  - Five inland river barges: `Orion 1` through `Orion 5`
   - Vessel fields include: `id`, `name`, `type`, `flag`, `util`, `target`, `status`, `pos`, `route`, `crew`, `defects`, `certs`, `dwt`, `built`, `class`, `imo`, `mgr`, `dayRate`, `voyageDays`, `pl`, `commercialMode`, `pool`, `charterer`, `acquired`, `entity`, `lat`, `lng`, `note`
 
 - `COMMERCIAL_MODE_LABELS`
@@ -67,12 +67,12 @@ This file captures the core GMPL dashboard data model from `src/data/seed.js` an
   - Includes port, grade, quantity, price, supplier, sample status, planned/completed state
 
 - `POOL_EARNINGS`
-  - Monthly pool earnings for Maersk Tankers and Hafnia pools
+  - Monthly pool earnings for Northstar Tankers and Polaris pools
   - Includes gross/net earnings, pool deductions, points, TCE, statements, upload dates
 
 ### 7. Market Data
 - `MARKET_DATA`
-  - Baltic indices, bunker prices, exchange rates, Maersk pool TCE estimate, Red Sea risk indicator
+  - Baltic indices, bunker prices, exchange rates, Northstar pool TCE estimate, Red Sea risk indicator
 
 ### 8. Business Verticals
 - `VERTICALS`
@@ -81,7 +81,7 @@ This file captures the core GMPL dashboard data model from `src/data/seed.js` an
 
 ### 9. Legal, Critical, and Red Flag Monitoring
 - `CRITICAL_ITEMS`
-  - High-priority operational issues such as MT Prelude pool transfer, IOPP certificate, bunkering RFQ, Cosmos utilisation
+  - High-priority operational issues such as MT Aurora pool transfer, IOPP certificate, bunkering RFQ, Orion utilisation
 
 - `LEGAL_MATTERS`
   - Active matters: charter party dispute, cargo claim, crew injury, newbuilding contract dispute
@@ -101,10 +101,10 @@ This file captures the core GMPL dashboard data model from `src/data/seed.js` an
   - Master and barge master assignments for vessels and barges
   - Includes rank, name, nationality, sign-on/off dates, certification status, relief readiness
 
-## Zoho Mock Data (GMPL Finance Demo)
+## Zoho Mock Data (MSG Finance Demo)
 
 The Zoho connector mock data in `src/lib/zoho.js` includes:
-- `MOCK_ORG` — organisation metadata for Goodearth Maritime Private Limited
+- `MOCK_ORG` — organisation metadata for Meridian Shipping Group
 - `MOCK_INVOICES` — demo invoices and receivables
 - `MOCK_BANK_ACCOUNTS` — bank balances and account details
 - `MOCK_PL` — vertical profit & loss summary
@@ -112,5 +112,5 @@ The Zoho connector mock data in `src/lib/zoho.js` includes:
 - `MOCK_REPORTS` — expense report summaries
 
 ## Notes
-- The dashboard data model is primarily seeded in `src/data/seed.js` and is designed for GMPL's maritime fleet, commercial, financial, legal, and operational dashboards.
+- The dashboard data model is primarily seeded in `src/data/seed.js` and is designed for MSG's maritime fleet, commercial, financial, legal, and operational dashboards.
 - The Zoho mock connector supports a live/demo switch using environment variables and mirrors the same financial data structures for the dashboard.

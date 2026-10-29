@@ -1,5 +1,5 @@
 -- ─────────────────────────────────────────────────────────────────────────────
--- GMPL Chairman Dashboard — Supabase Seed
+-- MSG Chairman Dashboard — Supabase Seed
 -- Run this in your Supabase SQL Editor to provision all tables and demo data.
 -- ─────────────────────────────────────────────────────────────────────────────
 
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS vessels (
 );
 
 INSERT INTO vessels VALUES
-  ('V001','MV Sea Empress','Chemical Tanker','Malta',92,88,485000,'green','Arabian Gulf','Hamriyah → Jebel Ali',24,2,'ok',19800,2014,'BV'),
-  ('V002','MV Good Earth Alpha','Product Tanker','Panama',78,85,312000,'amber','Red Sea','Suez → Aden',22,5,'warning',47500,2011,'DNV'),
+  ('V001','MV Sea Empress','Chemical Tanker','Malta',92,88,485000,'green','Arabian Gulf','Sharjah → Jebel Ali',24,2,'ok',19800,2014,'BV'),
+  ('V002','MV Meridian Alpha','Product Tanker','Panama',78,85,312000,'amber','Red Sea','Suez → Aden',22,5,'warning',47500,2011,'DNV'),
   ('V003','MV Neptune Glory','Chemical Tanker','Marshall Is.',95,88,623000,'green','Persian Gulf','Jubail → Fujairah',26,0,'ok',22400,2017,'LR'),
   ('V004','MV Saffron Star','Crude Carrier','Panama',65,80,-48000,'red','Laid Up — Dubai','Awaiting charter',18,12,'expired',105000,2006,'ABS'),
   ('V005','MV Indian Ocean','Product Tanker','Malta',88,85,398000,'green','Gulf of Oman','Muscat → Mumbai',23,1,'ok',51200,2015,'BV'),
@@ -49,10 +49,10 @@ CREATE TABLE IF NOT EXISTS legal_matters (
 );
 
 INSERT INTO legal_matters VALUES
-  ('L001','Charter Party Dispute','Petrochemical Corp Ltd','Claimant',2400000,'2026-06-14','Arbitration Hearing','red',85000,'Hill Dickinson LLP'),
-  ('L002','P&I Cargo Claim','Asian Chemical Holdings','Respondent',890000,'2026-07-02','Pleadings Deadline','amber',32000,'Ince & Co'),
-  ('L003','Crew Injury Claim','Chief Engineer Ramirez','Respondent',320000,'2026-05-28','Medical Assessment','red',18500,'P&I Club'),
-  ('L004','Newbuilding Contract Dispute','Eastern Shipyard Ltd','Claimant',4100000,'2026-08-19','Expert Determination','amber',127000,'Watson Farley & Williams')
+  ('L001','Charter Party Dispute','Horizon Petrochemicals FZE','Claimant',2400000,'2026-06-14','Arbitration Hearing','red',85000,'Ashford & Lane LLP'),
+  ('L002','P&I Cargo Claim','Orient Chemical Holdings','Respondent',890000,'2026-07-02','Pleadings Deadline','amber',32000,'Carrow & Co'),
+  ('L003','Crew Injury Claim','Chief Engineer','Respondent',320000,'2026-05-28','Medical Assessment','red',18500,'P&I Club'),
+  ('L004','Newbuilding Contract Dispute','Eastern Shipyard Ltd','Claimant',4100000,'2026-08-19','Expert Determination','amber',127000,'Hale & Whitford')
 ON CONFLICT (id) DO NOTHING;
 
 -- Revenue trend (monthly)
@@ -85,14 +85,14 @@ CREATE TABLE IF NOT EXISTS zoho_expenses (
 );
 
 INSERT INTO zoho_expenses VALUES
-  ('EXP-10291','Port Dues & Pilotage','Port Charges','Hamriyah Free Zone Authority',18400,'USD','2026-05-12','submitted','Capt. Ahmed Hassan','MV Neptune Glory','Corporate Card'),
-  ('EXP-10290','Travel & Accommodation','Corporate Travel','Marriott Al Barsha',4230,'USD','2026-05-11','approved','Fleet Manager Ravi Kumar','Corporate','Corporate Card'),
-  ('EXP-10289','Spare Parts & Stores','Technical','Wilhelmsen Ships Service',67800,'USD','2026-05-10','approved','Ch. Engr. Santos','MV Sea Empress','Bank Transfer'),
-  ('EXP-10288','Dry Dock & Repairs','Drydock','Dubai Drydocks World',245000,'USD','2026-05-09','pending','Technical Supt. Mehta','MV Saffron Star','Bank Transfer'),
-  ('EXP-10287','Bunker Purchase','Bunkers','ENOC Marine',189300,'USD','2026-05-08','approved','Capt. Liu Wei','MV Maritime Crown','Bank Transfer'),
-  ('EXP-10286','Agency Fees','Port Agency','Gulf Agency Company',8900,'USD','2026-05-07','submitted','Operations — Singh','MV Good Earth Alpha','Corporate Card'),
-  ('EXP-10285','Crew Welfare','Crew','Various',3200,'USD','2026-05-06','approved','Manning Supt. Fernandez','MV Indian Ocean','Cash'),
-  ('EXP-10284','Insurance Premium','Insurance','UK P&I Club',42000,'USD','2026-05-05','approved','Finance Controller','Corporate','Bank Transfer')
+  ('EXP-10291','Port Dues & Pilotage','Port Charges','Sharjah Port Authority',18400,'USD','2026-05-12','submitted','Master, MT Aurora','MV Neptune Glory','Corporate Card'),
+  ('EXP-10290','Travel & Accommodation','Corporate Travel','City Business Hotel',4230,'USD','2026-05-11','approved','Fleet Manager','Corporate','Corporate Card'),
+  ('EXP-10289','Spare Parts & Stores','Technical','Seaway Ship Services',67800,'USD','2026-05-10','approved','Chief Engineer','MV Sea Empress','Bank Transfer'),
+  ('EXP-10288','Dry Dock & Repairs','Drydock','Harbour Drydocks',245000,'USD','2026-05-09','pending','Technical Superintendent','MV Saffron Star','Bank Transfer'),
+  ('EXP-10287','Bunker Purchase','Bunkers','Eastport Marine Fuels',189300,'USD','2026-05-08','approved','Master, MT Calypso','MV Maritime Crown','Bank Transfer'),
+  ('EXP-10286','Agency Fees','Port Agency','Coastline Agency Co.',8900,'USD','2026-05-07','submitted','Operations Manager','MV Meridian Alpha','Corporate Card'),
+  ('EXP-10285','Crew Welfare','Crew','Various',3200,'USD','2026-05-06','approved','Manning Superintendent','MV Indian Ocean','Cash'),
+  ('EXP-10284','Insurance Premium','Insurance','Harbour P&I Club',42000,'USD','2026-05-05','approved','Finance Controller','Corporate','Bank Transfer')
 ON CONFLICT (expense_id) DO NOTHING;
 
 -- Row Level Security — enable on all tables so each user only sees permitted data

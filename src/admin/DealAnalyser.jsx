@@ -12,7 +12,7 @@ const DEFAULT = {
   acquisitionCost:28000000, prePurchaseCosts:500000,
   loanLtv:0.70, interestRate:0.08, loanTenureYears:5,
   operatingMode:'tc', dailyRate:19500, commissionRate:0.05,
-  poolName:'Maersk Tankers Pool', poolCommission:0.05, charterer:'',
+  poolName:'Northstar Tankers Pool', poolCommission:0.05, charterer:'',
   opexPerDay:7500, opexEscalation:0.02, operatingDays:335,
   ddCost:1000000, ssCost:1000000, ddYear:2, ssYear:5, dd2Year:7,
   scrapRatePerTon:400, operatingYears:8,
@@ -242,8 +242,8 @@ export default function DealAnalyser({ A }) {
             <ResultBadge label="Payback"                 value={result.paybackYears?result.paybackYears+' years':'N/A'} color={A.text}/>
           </div>
           <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
-            <div style={{ fontSize:11, color:A.muted }}>Model validated against Golden Curl 27/03/2026 (MHPL) ·</div>
-            <div style={{ fontSize:11, color:A.muted }}>Golden Curl result: Project IRR 19.3% · Equity IRR 16.0% ·</div>
+            <div style={{ fontSize:11, color:A.muted }}>Model validated against benchmark model 27/03/2026 ·</div>
+            <div style={{ fontSize:11, color:A.muted }}>Benchmark Model result: Project IRR 19.3% · Equity IRR 16.0% ·</div>
             <div style={{ fontSize:11, color:A.muted }}>Advisory only — Chairman retains final investment decision</div>
           </div>
         </div>

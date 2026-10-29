@@ -7,7 +7,7 @@ const SC = {open:C.blue, overdue:C.red, complete:C.green}
 
 export default function AIAssistant({ onClose }) {
   const [tab,        setTab]     = useState('tasks')
-  const [messages,   setMessages]= useState([{role:'assistant',content:"Good morning. I'm your executive intelligence assistant. I have access to GMPL's live dashboard — fleet status, financials, legal matters, and your action items. How can I assist you today?"}])
+  const [messages,   setMessages]= useState([{role:'assistant',content:"Good morning. I'm your executive intelligence assistant. I have access to MSG's live dashboard — fleet status, financials, legal matters, and your action items. How can I assist you today?"}])
   const [input,      setInput]   = useState('')
   const [thinking,   setThinking]= useState(false)
   const [items,      setItems]   = useState(ACTION_ITEMS)
@@ -63,7 +63,7 @@ export default function AIAssistant({ onClose }) {
             <div style={{ width:32, height:32, background:`linear-gradient(135deg,${C.gold},${C.goldLight})`, borderRadius:8, display:'flex', alignItems:'center', justifyContent:'center', fontSize:16, color:C.bg }}>✦</div>
             <div>
               <div style={{ fontSize:13, fontWeight:700, color:C.gold }}>Chairman's Assistant</div>
-              <div style={{ fontSize:10, color:C.textMuted }}>AI-powered · Goodearth Maritime</div>
+              <div style={{ fontSize:10, color:C.textMuted }}>AI-powered · Meridian Shipping</div>
             </div>
           </div>
           <button onClick={onClose} style={{ background:'none', border:`1px solid ${C.border}`, color:C.textMuted, width:28, height:28, borderRadius:6, fontSize:16, lineHeight:1, display:'flex', alignItems:'center', justifyContent:'center' }}>×</button>
@@ -153,7 +153,7 @@ export default function AIAssistant({ onClose }) {
             <div ref={bottomRef}/>
             {/* Quick prompts */}
             <div style={{ display:'flex', flexWrap:'wrap', gap:6, marginTop:4 }}>
-              {['What needs my attention today?','Status of MT Prelude?','Summarise legal exposure','Fleet utilisation trend'].map(q=>(
+              {['What needs my attention today?','Status of MT Aurora?','Summarise legal exposure','Fleet utilisation trend'].map(q=>(
                 <button key={q} onClick={()=>setInput(q)} style={{ fontSize:10, padding:'5px 10px', borderRadius:15, border:`1px solid ${C.border}`, background:'transparent', color:C.textMuted, fontFamily:'inherit', cursor:'pointer' }}>{q}</button>
               ))}
             </div>
@@ -173,7 +173,7 @@ export default function AIAssistant({ onClose }) {
             </div>
             <div>
               <div style={{ fontSize:11, color:C.textMuted, marginBottom:6, fontWeight:600, textTransform:'uppercase', letterSpacing:'0.06em' }}>Subject</div>
-              <input value={composeSubj} onChange={e=>setComposeSubj(e.target.value)} placeholder="e.g. MT Prelude — IOPP Certificate Renewal" style={{ width:'100%', background:C.card, border:`1px solid ${C.border}`, borderRadius:6, color:C.text, padding:'9px 12px', fontSize:12, fontFamily:'inherit', outline:'none' }}/>
+              <input value={composeSubj} onChange={e=>setComposeSubj(e.target.value)} placeholder="e.g. MT Aurora — IOPP Certificate Renewal" style={{ width:'100%', background:C.card, border:`1px solid ${C.border}`, borderRadius:6, color:C.text, padding:'9px 12px', fontSize:12, fontFamily:'inherit', outline:'none' }}/>
             </div>
             <div>
               <div style={{ fontSize:11, color:C.textMuted, marginBottom:6, fontWeight:600, textTransform:'uppercase', letterSpacing:'0.06em' }}>Context / Key Points</div>

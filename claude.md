@@ -1,7 +1,7 @@
 # Claude Integration
 
 ## Purpose
-This file documents the Claude AI integration for the GMPL Chairman's Intelligence Dashboard.
+This file documents the Claude AI integration for the MSG Chairman's Intelligence Dashboard.
 
 ## Source
 - `src/lib/claude.js`

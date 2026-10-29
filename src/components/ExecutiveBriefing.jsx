@@ -20,39 +20,39 @@ function ts() {
 }
 
 const DEADLINES = [
-  { date: '3 Jun', item: 'Petrochemical Corp — payment due $240K' },
-  { date: '5 Jun', item: 'Crew rotation — MT Anael, 3 officers off' },
+  { date: '3 Jun', item: 'Horizon Petrochemicals — payment due $240K' },
+  { date: '5 Jun', item: 'Crew rotation — MT Boreas, 3 officers off' },
   { date: '7 Jun', item: 'D005 broker bids deadline' },
 ]
 
 const AM_UPDATES = [
-  { col: '#0FD49A', icon: '✓', txt: 'Hill Dickinson confirmed for 14 Jun — 10:42 AM' },
-  { col: '#0FD49A', icon: '↑', txt: 'Payment received: Nura Ship Mgmt $85K — 11:15 AM' },
-  { col: '#F59E0B', icon: '⚠', txt: 'MT Prelude ETA shifted — now 6 Jun (was 4 Jun)' },
+  { col: '#0FD49A', icon: '✓', txt: 'Ashford & Lane confirmed for 14 Jun — 10:42 AM' },
+  { col: '#0FD49A', icon: '↑', txt: 'Payment received: Meridian Ship Mgmt $85K — 11:15 AM' },
+  { col: '#F59E0B', icon: '⚠', txt: 'MT Aurora ETA shifted — now 6 Jun (was 4 Jun)' },
 ]
 
 const STILL_OPEN = [
   'IOPP renewal survey not yet booked — Day 2 unactioned',
-  'Maersk Tankers pool alloc. date — no response',
+  'Northstar Tankers pool alloc. date — no response',
 ]
 
 const REVIEW_RESOLVED = [
-  'Hill Dickinson briefing confirmed for 14 Jun',
-  '$85K payment received from Nura Ship Mgmt',
+  'Ashford & Lane briefing confirmed for 14 Jun',
+  '$85K payment received from Meridian Ship Mgmt',
 ]
 
 const REVIEW_PENDING = [
   'IOPP survey booking (Day 2 unactioned)',
-  'Maersk pool alloc. — no response (Day 3)',
+  'Northstar pool alloc. — no response (Day 3)',
 ]
 
 const TOMORROW = [
   { urg: 'high', txt: 'Book IOPP survey — now 37 days, escalating' },
-  { urg: 'high', txt: 'Call Maersk Tankers — 3 days no response' },
+  { urg: 'high', txt: 'Call Northstar Tankers — 3 days no response' },
   { urg: 'med',  txt: 'D005 broker bids close — review by 09:00' },
 ]
 
-// BCTI, VLSFO, Maersk Pool TCE
+// BCTI, VLSFO, Northstar Pool TCE
 const MKT = MARKET_DATA.filter((_, i) => [1, 3, 5].includes(i))
 
 function SectionHd({ label, col }) {
@@ -126,7 +126,7 @@ function MorningBrief() {
         {[
           'Fleet utilisation 87% — above 80% target for third consecutive month',
           'Ship Management margin 40% — strongest performing vertical this quarter',
-          'MT Nura Kara and MT Anael above 91% utilised this month',
+          'MT Calypso and MT Boreas above 91% utilised this month',
         ].map((t, i) => (
           <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 6, alignItems: 'flex-start' }}>
             <span style={{ color: C.green, fontSize: 12, flexShrink: 0 }}>✓</span>

@@ -78,7 +78,7 @@ export default function App() {
             <div style={{ display:'flex', alignItems:'center', gap:10 }}>
               <span className="pulse-red" style={{ width:8,height:8,borderRadius:'50%',background:C.red,display:'inline-block',flexShrink:0 }}/>
               <span style={{ fontWeight:700,color:C.red,fontSize:12,letterSpacing:'0.04em',flexShrink:0 }}>CRITICAL</span>
-              <span style={{ fontSize:13,color:'#FCA5A5' }}>MT Prelude — IOPP Certificate expires 10 Aug (38 days). Renewal survey must be booked immediately.</span>
+              <span style={{ fontSize:13,color:'#FCA5A5' }}>MT Aurora — IOPP Certificate expires 10 Aug (38 days). Renewal survey must be booked immediately.</span>
             </div>
             <button onClick={()=>setAlert(false)} style={{ background:'none',border:'none',color:'#FCA5A5',fontSize:22,lineHeight:1,flexShrink:0 }}>×</button>
           </div>
@@ -88,7 +88,7 @@ export default function App() {
           <div style={{ display:'flex', alignItems:'center', gap:14 }}>
             <div className="glow-gold" style={{ width:38,height:38,background:`linear-gradient(135deg,${C.gold},${C.goldLight})`,borderRadius:9,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'Playfair Display',serif",fontWeight:700,fontSize:17,color:C.bg,flexShrink:0 }}>G</div>
             <div>
-              <div style={{ fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:600,color:C.text,letterSpacing:'0.03em' }}>Goodearth Maritime</div>
+              <div style={{ fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:600,color:C.text,letterSpacing:'0.03em' }}>Meridian Shipping</div>
               <div style={{ fontSize:10,fontWeight:700,color:C.textMuted,letterSpacing:'0.12em',textTransform:'uppercase' }}>Chairman's Executive Intelligence Dashboard</div>
             </div>
           </div>

@@ -46,7 +46,7 @@ export default function HSE() {
             <Bar dataKey="ltif" name="LTIF" fill={C.green} radius={[4,4,0,0]}/>
           </BarChart>
         </ResponsiveContainer>
-        <div style={{ marginTop:8, fontSize:12, color:C.textSub }}>GMPL LTIF <span style={{ color:C.green, fontWeight:700 }}>0.42</span> — <span style={{ color:C.green }}>38% better than industry benchmark</span>. Improving trend over 12 months.</div>
+        <div style={{ marginTop:8, fontSize:12, color:C.textSub }}>MSG LTIF <span style={{ color:C.green, fontWeight:700 }}>0.42</span> — <span style={{ color:C.green }}>38% better than industry benchmark</span>. Improving trend over 12 months.</div>
       </Card>
 
       {/* Incident log */}

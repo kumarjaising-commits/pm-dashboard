@@ -15,12 +15,12 @@ const BDI_TREND  = genTrend(1750, 120)
 const VLSFO_TREND= genTrend(595, 20)
 
 const MARKET_REPORTS = [
-  { id:'R001', title:'Maersk Tankers Pool Report — April 2026',     source:'Maersk Tankers',   date:'08 May 2026',  type:'Pool Statement',    tag:'pool',    summary:'MR TCE averaged $21,280/day in April. Pool points +3.2% vs March. Red Sea premium maintained.' },
+  { id:'R001', title:'Northstar Tankers Pool Report — April 2026',     source:'Northstar Tankers',   date:'08 May 2026',  type:'Pool Statement',    tag:'pool',    summary:'MR TCE averaged $21,280/day in April. Pool points +3.2% vs March. Red Sea premium maintained.' },
   { id:'R002', title:'Gibson Shipbrokers — Weekly Tanker Report',    source:'Gibson & Co',      date:'12 May 2026',  type:'Weekly Report',     tag:'market',  summary:'MR markets firm on AG/East trade. VLSFO spread widening. Suez rerouting adding ~$4,500/day premium.' },
   { id:'R003', title:'Clarksons Shipping Intelligence — May 2026',   source:'Clarksons',        date:'01 May 2026',  type:'Monthly Report',    tag:'market',  summary:'Product tanker demand strong driven by refinery dislocation. MR spot rates expected to hold above $20K through Q3.' },
   { id:'R004', title:'Baltic Exchange Weekly — 9 May 2026',          source:'Baltic Exchange',  date:'09 May 2026',  type:'Market Data',       tag:'baltic',  summary:'BDTI rose 2.1% WoW. BCTI +1.8%. MR AG/Japan route TD12 assessed at $28.5/MT.' },
   { id:'R005', title:'Poten & Partners — Monthly Tanker Outlook',    source:'Poten & Partners', date:'05 May 2026',  type:'Monthly Report',    tag:'market',  summary:'Ongoing Red Sea disruptions supporting ton-mile demand. New delivery order book thin through 2027.' },
-  { id:'R006', title:'UK P&I Club — War Risk Circular — May 2026',   source:'UK P&I Club',      date:'06 May 2026',  type:'Regulatory Circular',tag:'pi',     summary:'Red Sea / Gulf of Aden: Voluntary Reporting Area extended. Additional premium applicable for transits.' },
+  { id:'R006', title:'Harbour P&I Club — War Risk Circular — May 2026',   source:'Harbour P&I Club',      date:'06 May 2026',  type:'Regulatory Circular',tag:'pi',     summary:'Red Sea / Gulf of Aden: Voluntary Reporting Area extended. Additional premium applicable for transits.' },
 ]
 
 const TAG_COL = { pool:C.gold, market:C.blue, baltic:C.green, pi:C.red }

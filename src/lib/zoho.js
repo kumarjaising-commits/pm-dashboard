@@ -1,7 +1,7 @@
 /**
  * Zoho Finance Suite Connector
  *
- * Zoho is GMPL's primary ERP covering:
+ * Zoho is MSG's primary ERP covering:
  *   — Zoho Books   : accounting, P&L, invoices, bank reconciliation
  *   — Zoho Expense : expense claims and approval workflow
  *   — Zoho Payroll : crew and staff payroll
@@ -27,36 +27,36 @@ const DEMO_MODE    = !import.meta.env.VITE_ZOHO_TOKEN
 // ─── Mock Organisation ───────────────────────────────────────────────────────
 
 export const MOCK_ORG = {
-  org_id:                  '10229182',
-  name:                    'Goodearth Maritime Private Limited',
-  contact_name:            'N. Pillai — Finance Controller',
-  email:                   'finance@goodearth-maritime.com',
+  org_id:                  '10000001',
+  name:                    'Meridian Shipping Group',
+  contact_name:            'Finance Controller',
+  email:                   'finance@meridian-shipping.example',
   currency_code:           'USD',
   currency_symbol:         '$',
   fiscal_year_start_month: 4,
   time_zone:               'Asia/Dubai',
   industry_type:           'Transportation & Logistics',
-  portal_name:             'goodearth-maritime',
+  portal_name:             'meridian-shipping',
 }
 
 // ─── Mock Zoho Books Data ────────────────────────────────────────────────────
 
 export const MOCK_INVOICES = [
-  { invoice_id:'INV-4821', customer_name:'Gulf Petrochemicals Co.',  total:284000, balance:284000, date:'2026-05-10', due_date:'2026-06-10', status:'open',     invoice_number:'INV-4821', vertical:'Ship Owning'    },
-  { invoice_id:'INV-4820', customer_name:'Emirates National Oil Co.',total:192000, balance:192000, date:'2026-05-08', due_date:'2026-06-08', status:'open',     invoice_number:'INV-4820', vertical:'Ship Management' },
-  { invoice_id:'INV-4819', customer_name:'Reliance Industries Ltd.', total:315000, balance:315000, date:'2026-04-28', due_date:'2026-05-28', status:'overdue',  invoice_number:'INV-4819', vertical:'Ship Owning'    },
+  { invoice_id:'INV-4821', customer_name:'Horizon Petrochemicals Co.',  total:284000, balance:284000, date:'2026-05-10', due_date:'2026-06-10', status:'open',     invoice_number:'INV-4821', vertical:'Ship Owning'    },
+  { invoice_id:'INV-4820', customer_name:'Eastport Fuels Co.',total:192000, balance:192000, date:'2026-05-08', due_date:'2026-06-08', status:'open',     invoice_number:'INV-4820', vertical:'Ship Management' },
+  { invoice_id:'INV-4819', customer_name:'Western Refining Ltd.', total:315000, balance:315000, date:'2026-04-28', due_date:'2026-05-28', status:'overdue',  invoice_number:'INV-4819', vertical:'Ship Owning'    },
   { invoice_id:'INV-4818', customer_name:'Eastern Shipyard Ltd.',    total:620000, balance:620000, date:'2026-04-15', due_date:'2026-05-15', status:'overdue',  invoice_number:'INV-4818', vertical:'Ship Building'  },
-  { invoice_id:'INV-4817', customer_name:'Adani Ports & SEZ Ltd.',   total:98000,  balance:98000,  date:'2026-05-01', due_date:'2026-06-01', status:'open',     invoice_number:'INV-4817', vertical:'Ship Repairing' },
-  { invoice_id:'INV-4816', customer_name:'Saudi Aramco Trading Co.', total:445000, balance:445000, date:'2026-03-31', due_date:'2026-04-30', status:'overdue',  invoice_number:'INV-4816', vertical:'Ship Building'  },
-  { invoice_id:'INV-4815', customer_name:'Wilhelmsen Ship Services', total:67000,  balance:0,      date:'2026-05-12', due_date:'2026-06-12', status:'paid',     invoice_number:'INV-4815', vertical:'Ship Management'},
-  { invoice_id:'INV-4814', customer_name:'Gulf Agency Company',      total:28000,  balance:0,      date:'2026-05-11', due_date:'2026-06-11', status:'paid',     invoice_number:'INV-4814', vertical:'Ship Owning'    },
+  { invoice_id:'INV-4817', customer_name:'Westport Ports & SEZ Ltd.',   total:98000,  balance:98000,  date:'2026-05-01', due_date:'2026-06-01', status:'open',     invoice_number:'INV-4817', vertical:'Ship Repairing' },
+  { invoice_id:'INV-4816', customer_name:'Red Sea Trading Co.', total:445000, balance:445000, date:'2026-03-31', due_date:'2026-04-30', status:'overdue',  invoice_number:'INV-4816', vertical:'Ship Building'  },
+  { invoice_id:'INV-4815', customer_name:'Seaway Ship Services', total:67000,  balance:0,      date:'2026-05-12', due_date:'2026-06-12', status:'paid',     invoice_number:'INV-4815', vertical:'Ship Management'},
+  { invoice_id:'INV-4814', customer_name:'Coastline Agency Co.',      total:28000,  balance:0,      date:'2026-05-11', due_date:'2026-06-11', status:'paid',     invoice_number:'INV-4814', vertical:'Ship Owning'    },
 ]
 
 export const MOCK_BANK_ACCOUNTS = [
-  { account_id:'BA001', account_name:'Emirates NBD — USD Operating', bank_name:'Emirates NBD', current_balance:3842000, currency_code:'USD', last_imported_date:'13 May 2026', account_type:'bank' },
-  { account_id:'BA002', account_name:'Emirates NBD — AED Payroll',   bank_name:'Emirates NBD', current_balance:4180000, currency_code:'AED', last_imported_date:'10 May 2026', account_type:'bank' },
-  { account_id:'BA003', account_name:'Mashreq Bank — USD Reserve',   bank_name:'Mashreq Bank', current_balance:1250000, currency_code:'USD', last_imported_date:'01 May 2026', account_type:'bank' },
-  { account_id:'BA004', account_name:'HSBC UAE — USD Trade Finance',  bank_name:'HSBC UAE',    current_balance:890000,  currency_code:'USD', last_imported_date:'08 May 2026', account_type:'bank' },
+  { account_id:'BA001', account_name:'Coastal National Bank — USD Operating', bank_name:'Coastal National Bank', current_balance:3842000, currency_code:'USD', last_imported_date:'13 May 2026', account_type:'bank' },
+  { account_id:'BA002', account_name:'Coastal National Bank — AED Payroll',   bank_name:'Coastal National Bank', current_balance:4180000, currency_code:'AED', last_imported_date:'10 May 2026', account_type:'bank' },
+  { account_id:'BA003', account_name:'Harbor Trust Bank — USD Reserve',   bank_name:'Harbor Trust Bank', current_balance:1250000, currency_code:'USD', last_imported_date:'01 May 2026', account_type:'bank' },
+  { account_id:'BA004', account_name:'Continental Bank UAE — USD Trade Finance',  bank_name:'Continental Bank UAE',    current_balance:890000,  currency_code:'USD', last_imported_date:'08 May 2026', account_type:'bank' },
 ]
 
 export const MOCK_PL = [
@@ -69,21 +69,21 @@ export const MOCK_PL = [
 // ─── Mock Zoho Expense Data ──────────────────────────────────────────────────
 
 export const MOCK_EXPENSES = [
-  { expense_id:'EXP-10291', expense_item_name:'Port Dues & Pilotage',  category_name:'Port Charges',    merchant_name:'Hamriyah Free Zone Authority', amount:18400,  currency_code:'USD', date:'2026-05-12', report_status:'submitted', submitted_by:'Capt. Ahmed Hassan',      vessel:'MT Nura Kara',   payment_mode:'Corporate Card' },
-  { expense_id:'EXP-10290', expense_item_name:'Travel & Accommodation',category_name:'Corporate Travel', merchant_name:'Marriott Al Barsha',           amount:4230,   currency_code:'USD', date:'2026-05-11', report_status:'approved',  submitted_by:'Fleet Mgr Ravi Kumar',     vessel:'Corporate',          payment_mode:'Corporate Card' },
-  { expense_id:'EXP-10289', expense_item_name:'Spare Parts & Stores',  category_name:'Technical',        merchant_name:'Wilhelmsen Ships Service',     amount:67800,  currency_code:'USD', date:'2026-05-10', report_status:'approved',  submitted_by:'Ch. Engr. Santos',         vessel:'MT Prelude',     payment_mode:'Bank Transfer'  },
-  { expense_id:'EXP-10288', expense_item_name:'Dry Dock & Repairs',    category_name:'Drydock',          merchant_name:'Dubai Drydocks World',         amount:245000, currency_code:'USD', date:'2026-05-09', report_status:'pending',   submitted_by:'Technical Supt. Mehta',    vessel:'MT Nura Bright',    payment_mode:'Bank Transfer'  },
-  { expense_id:'EXP-10287', expense_item_name:'Bunker Purchase',       category_name:'Bunkers',          merchant_name:'ENOC Marine',                 amount:189300, currency_code:'USD', date:'2026-05-08', report_status:'approved',  submitted_by:'Capt. Liu Wei',            vessel:'Cosmos 1',  payment_mode:'Bank Transfer'  },
-  { expense_id:'EXP-10286', expense_item_name:'Agency Fees',           category_name:'Port Agency',      merchant_name:'Gulf Agency Company',         amount:8900,   currency_code:'USD', date:'2026-05-07', report_status:'submitted', submitted_by:'Operations — Singh',       vessel:'MV Goodearth Alpha',payment_mode:'Corporate Card' },
-  { expense_id:'EXP-10285', expense_item_name:'Crew Welfare',          category_name:'Crew',             merchant_name:'Various',                     amount:3200,   currency_code:'USD', date:'2026-05-06', report_status:'approved',  submitted_by:'Manning Supt. Fernandez',  vessel:'Cosmos 2',    payment_mode:'Cash'           },
-  { expense_id:'EXP-10284', expense_item_name:'Insurance Premium',     category_name:'Insurance',        merchant_name:'UK P&I Club',                 amount:42000,  currency_code:'USD', date:'2026-05-05', report_status:'approved',  submitted_by:'Finance Controller',       vessel:'Corporate',          payment_mode:'Bank Transfer'  },
+  { expense_id:'EXP-10291', expense_item_name:'Port Dues & Pilotage',  category_name:'Port Charges',    merchant_name:'Sharjah Port Authority', amount:18400,  currency_code:'USD', date:'2026-05-12', report_status:'submitted', submitted_by:'Master, MT Aurora',      vessel:'MT Calypso',   payment_mode:'Corporate Card' },
+  { expense_id:'EXP-10290', expense_item_name:'Travel & Accommodation',category_name:'Corporate Travel', merchant_name:'City Business Hotel',           amount:4230,   currency_code:'USD', date:'2026-05-11', report_status:'approved',  submitted_by:'Fleet Manager',     vessel:'Corporate',          payment_mode:'Corporate Card' },
+  { expense_id:'EXP-10289', expense_item_name:'Spare Parts & Stores',  category_name:'Technical',        merchant_name:'Seaway Ship Services',     amount:67800,  currency_code:'USD', date:'2026-05-10', report_status:'approved',  submitted_by:'Chief Engineer',         vessel:'MT Aurora',     payment_mode:'Bank Transfer'  },
+  { expense_id:'EXP-10288', expense_item_name:'Dry Dock & Repairs',    category_name:'Drydock',          merchant_name:'Harbour Drydocks',         amount:245000, currency_code:'USD', date:'2026-05-09', report_status:'pending',   submitted_by:'Technical Superintendent',    vessel:'MT Delphine',    payment_mode:'Bank Transfer'  },
+  { expense_id:'EXP-10287', expense_item_name:'Bunker Purchase',       category_name:'Bunkers',          merchant_name:'Eastport Marine Fuels',                 amount:189300, currency_code:'USD', date:'2026-05-08', report_status:'approved',  submitted_by:'Master, MT Calypso',            vessel:'Orion 1',  payment_mode:'Bank Transfer'  },
+  { expense_id:'EXP-10286', expense_item_name:'Agency Fees',           category_name:'Port Agency',      merchant_name:'Coastline Agency Co.',         amount:8900,   currency_code:'USD', date:'2026-05-07', report_status:'submitted', submitted_by:'Operations Manager',       vessel:'MV Meridian Alpha',payment_mode:'Corporate Card' },
+  { expense_id:'EXP-10285', expense_item_name:'Crew Welfare',          category_name:'Crew',             merchant_name:'Various',                     amount:3200,   currency_code:'USD', date:'2026-05-06', report_status:'approved',  submitted_by:'Manning Superintendent',  vessel:'Orion 2',    payment_mode:'Cash'           },
+  { expense_id:'EXP-10284', expense_item_name:'Insurance Premium',     category_name:'Insurance',        merchant_name:'Harbour P&I Club',                 amount:42000,  currency_code:'USD', date:'2026-05-05', report_status:'approved',  submitted_by:'Finance Controller',       vessel:'Corporate',          payment_mode:'Bank Transfer'  },
 ]
 
 export const MOCK_REPORTS = [
-  { report_id:'ER-2847', report_name:'May 2026 — Voyage Expenses MT Nura Kara',   report_status:'submitted', submitted_by:'Capt. Ahmed Hassan',  total:28450,  currency_code:'USD', submitted_date:'2026-05-12', num_expenses:4 },
-  { report_id:'ER-2846', report_name:'Apr 2026 — Corporate Travel Q2',             report_status:'approved',  submitted_by:'Fleet Mgr Ravi Kumar',total:11230,  currency_code:'USD', submitted_date:'2026-04-30', num_expenses:6 },
-  { report_id:'ER-2845', report_name:'May 2026 — Technical Stores MT Nura Bright',    report_status:'approved',  submitted_by:'Ch. Engr. Santos',    total:82100,  currency_code:'USD', submitted_date:'2026-05-10', num_expenses:3 },
-  { report_id:'ER-2844', report_name:'MT Prelude — IOPP Survey Preparation 2026',        report_status:'pending',   submitted_by:'Technical Supt. Mehta',total:245000, currency_code:'USD', submitted_date:'2026-05-09', num_expenses:1 },
+  { report_id:'ER-2847', report_name:'May 2026 — Voyage Expenses MT Calypso',   report_status:'submitted', submitted_by:'Master, MT Aurora',  total:28450,  currency_code:'USD', submitted_date:'2026-05-12', num_expenses:4 },
+  { report_id:'ER-2846', report_name:'Apr 2026 — Corporate Travel Q2',             report_status:'approved',  submitted_by:'Fleet Manager',total:11230,  currency_code:'USD', submitted_date:'2026-04-30', num_expenses:6 },
+  { report_id:'ER-2845', report_name:'May 2026 — Technical Stores MT Delphine',    report_status:'approved',  submitted_by:'Chief Engineer',    total:82100,  currency_code:'USD', submitted_date:'2026-05-10', num_expenses:3 },
+  { report_id:'ER-2844', report_name:'MT Aurora — IOPP Survey Preparation 2026',        report_status:'pending',   submitted_by:'Technical Superintendent',total:245000, currency_code:'USD', submitted_date:'2026-05-09', num_expenses:1 },
 ]
 
 // ─── API Helpers ─────────────────────────────────────────────────────────────
@@ -139,7 +139,7 @@ export async function getExpenseReports() {
 export const zohoConnectorStatus = {
   name:       'Zoho Finance Suite',
   status:     DEMO_MODE ? 'demo' : 'connected',
-  orgId:      import.meta.env.VITE_ZOHO_ORG_ID || '10229182 (demo)',
+  orgId:      import.meta.env.VITE_ZOHO_ORG_ID || '10000001 (demo)',
   region:     'UAE — zoho.com',
   authMethod: 'OAuth 2.0 Bearer',
   booksBase:  BOOKS_BASE,

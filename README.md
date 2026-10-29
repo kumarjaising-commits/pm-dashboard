@@ -1,13 +1,13 @@
-# GMPL Chairman's Intelligence Dashboard
+# MSG Chairman's Intelligence Dashboard
 
-**Good Earth Maritime Private Limited — Executive Intelligence Dashboard**
+**Meridian Shipping Group — Executive Intelligence Dashboard**
 Confidential. For internal use only.
 
 ---
 
 ## What This Is
 
-A fully interactive React web application delivering the Chairman's executive intelligence dashboard across all four GMPL verticals:
+A fully interactive React web application delivering the Chairman's executive intelligence dashboard across all four MSG verticals:
 - Group Overview with AI briefing, P&L, and market data
 - Maritime fleet status with vessel drill-through
 - Legal & Risk — litigation tracker, certificate expiry
@@ -101,7 +101,7 @@ The app will automatically switch from mock data to live Supabase data once the 
 ## Project Structure
 
 ```
-gmpl-dashboard/
+pm-dashboard/
 ├── src/
 │   ├── components/
 │   │   ├── Overview.jsx       ← Group overview screen
@@ -136,5 +136,5 @@ gmpl-dashboard/
 
 ---
 
-*Prepared by ATS — Confidential — Good Earth Maritime Private Limited — May 2026*
+*Prepared by ATS — Confidential — Meridian Shipping Group — May 2026*
 # Production Deployment Sat May 16 19:45:09 +04 2026

@@ -1,7 +1,7 @@
 /**
- * IRR Engine — replicates the Golden Curl ship acquisition model
+ * IRR Engine — replicates the Benchmark Model ship acquisition model
  *
- * Model structure (from Golden Curl 27/03/2026):
+ * Model structure (from Benchmark Model 27/03/2026):
  *  - Net Revenue = TC/Pool Rate × Operating Days × (1 − commission)
  *  - OPEX escalates at 2%/year
  *  - DD and SS are lump-sum costs in specified years
@@ -51,7 +51,7 @@ export function irr(cashFlows) {
 
 /**
  * Returns annual { interest, repayment } for each year.
- * Matches Golden Curl quarterly reducing-balance schedule aggregated to annual.
+ * Matches Benchmark Model quarterly reducing-balance schedule aggregated to annual.
  */
 export function buildLoanSchedule(loanAmount, interestRate, tenureYears) {
   const quarters     = tenureYears * 4
@@ -78,7 +78,7 @@ export function buildLoanSchedule(loanAmount, interestRate, tenureYears) {
 // ─── MAIN MODEL ───────────────────────────────────────────────────────────────
 
 /**
- * Run the full Golden Curl-style acquisition model.
+ * Run the full Benchmark-style acquisition model.
  *
  * @param {object} p - all input parameters
  * @returns {object} - full model output including IRRs, annual P&L, cash flows
@@ -99,7 +99,7 @@ export function runModel(p) {
     const grossRev  = p.dailyRate * p.operatingDays
     const netRev    = grossRev * (1 - (p.commissionRate || 0.05))
 
-    // OPEX — 2% annual escalation matching Golden Curl
+    // OPEX — 2% annual escalation matching Benchmark Model
     const opex      = p.opexPerDay * 365 * Math.pow(1 + (p.opexEscalation || 0.02), yr - 1)
 
     // DD / SS costs in specified years

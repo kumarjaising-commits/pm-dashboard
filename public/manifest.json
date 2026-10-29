@@ -1,7 +1,7 @@
 {
-  "name": "GMPL Chairman Dashboard",
-  "short_name": "GMPL",
-  "description": "Good Earth Maritime — Chairman's Executive Intelligence Dashboard",
+  "name": "MSG Chairman Dashboard",
+  "short_name": "MSG",
+  "description": "Meridian Shipping — Chairman's Executive Intelligence Dashboard",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
