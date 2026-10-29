@@ -83,7 +83,7 @@ export default function App() {
 
         <div style={{ background:`linear-gradient(180deg,#0A1C32,#0C1E34)`, borderBottom:`1px solid ${C.border}`, padding:'0 24px', height:60, display:'flex', alignItems:'center', justifyContent:'space-between', gap:10, flexWrap:'wrap' }}>
           <div style={{ display:'flex', alignItems:'center', gap:14 }}>
-            <div className="glow-gold" style={{ width:38,height:38,background:`linear-gradient(135deg,${C.gold},${C.goldLight})`,borderRadius:9,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'Playfair Display',serif",fontWeight:700,fontSize:17,color:C.bg,flexShrink:0 }}>G</div>
+            <div className="glow-gold" style={{ width:38,height:38,background:`linear-gradient(135deg,${C.gold},${C.goldLight})`,borderRadius:9,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:"'Playfair Display',serif",fontWeight:700,fontSize:17,color:C.bg,flexShrink:0 }}>M</div>
             <div>
               <div style={{ fontFamily:"'Playfair Display',serif",fontSize:15,fontWeight:600,color:C.text,letterSpacing:'0.03em' }}>Meridian Shipping</div>
               <div style={{ fontSize:10,fontWeight:700,color:C.textMuted,letterSpacing:'0.12em',textTransform:'uppercase' }}>Chairman's Executive Intelligence Dashboard</div>

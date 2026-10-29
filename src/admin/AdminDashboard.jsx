@@ -40,7 +40,7 @@ function LoginScreen({ onLogin }) {
     <div style={{ minHeight:'100vh', background:A.bg, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'DM Sans',sans-serif" }}>
       <div style={{ background:A.card, border:`1px solid ${A.border}`, borderRadius:16, padding:'40px 44px', width:380, boxShadow:'0 24px 60px rgba(0,0,0,0.6)' }}>
         <div style={{ textAlign:'center', marginBottom:32 }}>
-          <div style={{ width:52, height:52, background:`linear-gradient(135deg,${A.gold},${A.goldL})`, borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:22, color:A.bg, margin:'0 auto 16px' }}>G</div>
+          <div style={{ width:52, height:52, background:`linear-gradient(135deg,${A.gold},${A.goldL})`, borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:22, color:A.bg, margin:'0 auto 16px' }}>M</div>
           <div style={{ fontFamily:"'Playfair Display',serif", fontSize:20, fontWeight:600, color:A.text, marginBottom:4 }}>Meridian Shipping</div>
           <div style={{ fontSize:12, color:A.muted, letterSpacing:'0.08em', textTransform:'uppercase' }}>Advisor Admin Portal</div>
         </div>
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <div style={{ background:`linear-gradient(180deg,#0A1828,#0C1E34)`, borderBottom:`1px solid ${A.border}`, padding:'0 28px', height:58, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
         <div style={{ display:'flex', alignItems:'center', gap:12 }}>
-          <div style={{ width:34, height:34, background:`linear-gradient(135deg,${A.gold},${A.goldL})`, borderRadius:8, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:15, color:A.bg }}>G</div>
+          <div style={{ width:34, height:34, background:`linear-gradient(135deg,${A.gold},${A.goldL})`, borderRadius:8, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Playfair Display',serif", fontWeight:700, fontSize:15, color:A.bg }}>M</div>
           <div>
             <div style={{ fontSize:13, fontWeight:700, color:A.text }}>Meridian Shipping</div>
             <div style={{ fontSize:10, color:A.muted, letterSpacing:'0.1em', textTransform:'uppercase' }}>Advisor Admin Portal</div>
