@@ -177,9 +177,10 @@ export function KpiCard({ label, value, sub, trend, color, large }) {
   )
 }
 
-export function GoldButton({ children, onClick, style = {}, outline }) {
+export function GoldButton({ children, onClick, style = {}, outline, disabled }) {
   return (
-    <button onClick={onClick} style={{
+    <button onClick={onClick} disabled={disabled} style={{
+      ...(disabled && { opacity: 0.45, cursor: 'not-allowed' }),
       fontSize: 12, fontWeight: 600,
       color: outline ? C.gold : C.bg,
       background: outline ? 'transparent' : `linear-gradient(135deg, ${C.gold}, ${C.goldLight})`,

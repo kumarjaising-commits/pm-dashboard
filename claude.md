@@ -1,41 +1,12 @@
 # Claude Integration
 
-## Purpose
-This file documents the Claude AI integration for the MSG Chairman's Intelligence Dashboard.
+## Status
+**Disabled — "Coming soon".** The dashboard ships with no AI integration and no API keys.
 
-## Source
-- `src/lib/claude.js`
+- All AI entry points (sidebar/header Assistant, Legal "Talking Points", vessel briefings on Maritime, Fleet Map and mobile) render as disabled "Coming soon" buttons.
+- The former integration (`src/lib/claude.js`, `src/components/AIAssistant.jsx`, `api/claude.js` proxy) was removed; recover it from git history if needed.
 
-## API Endpoint
-- `https://api.anthropic.com/v1/messages`
-
-## Model
-- Default: `claude-sonnet-4-20250514`
-- Override with `VITE_CLAUDE_MODEL`
-
-## Environment Variables
-- `VITE_CLAUDE_API_KEY`
-  - Required for live Claude AI calls
-  - Should be stored in `.env`, Vercel environment settings, or equivalent deployment secret store
-- `VITE_CLAUDE_MODEL`
-  - Optional override of the Claude model name
-  - Defaults to `claude-sonnet-4-20250514` if unset
-
-## Integration behavior
-- When `VITE_CLAUDE_API_KEY` is not set, the app returns a placeholder message:
-  - `Claude AI is unavailable. Set VITE_CLAUDE_API_KEY in your .env file to enable live AI.`
-- Uses `Authorization: Bearer <API_KEY>` header for requests.
-- Uses `Content-Type: application/json`.
-
-## Functions
-- `callClaude(messages, maxTokens = 800)`
-  - Sends chat messages to Claude
-  - Returns generated text or an error placeholder
-- `generateTalkingPoints(matter)`
-- `generateVesselBriefing(vessel)`
-- `draftEmail(recipient, subject, context)`
-- `chatWithAssistant(history, userMessage)`
-
-## Notes
-- This integration is frontend-only and expects Vite to expose `import.meta.env` values.
-- Ensure secrets are never committed to source control.
+## Re-enabling (future)
+- Call Anthropic only from a server-side function using a non-`VITE_` env var (e.g. `CLAUDE_API_KEY`). `VITE_*` variables are bundled into the browser and would expose the key.
+- Restrict the server route (auth and/or origin) so it can't be used as an open proxy.
+- Never commit secrets to source control.

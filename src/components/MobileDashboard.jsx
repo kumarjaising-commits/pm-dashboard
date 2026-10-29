@@ -10,7 +10,6 @@ import {
   ACTIVE_DEALS, ALERTS, CONNECTORS, CREW_SIGNOFFS, HSE_KPI,
   INSPECTIONS, FLEET_CHARTERS
 } from '../data/seed.js'
-import { chatWithAssistant } from '../lib/claude.js'
 
 const M = {
   bg:       '#091828',
@@ -409,8 +408,8 @@ function FleetTab() {
               </div>
             ))}
           </div>
-          <div style={{ background: M.goldDim, border: `1px solid ${M.gold}44`, borderRadius: 10, padding: '12px 16px', textAlign: 'center', color: M.gold, fontSize: 13, fontWeight: 600 }}>
-            ✦ Generate AI Vessel Briefing →
+          <div style={{ background: M.goldDim, border: `1px solid ${M.gold}44`, borderRadius: 10, padding: '12px 16px', textAlign: 'center', color: M.gold, fontSize: 13, fontWeight: 600, opacity: 0.6 }}>
+            ✦ AI Vessel Briefing · Coming soon
           </div>
         </Sheet>
       )}
@@ -701,66 +700,6 @@ function DealsTab() {
   )
 }
 
-function MobileAssistant({ onClose }) {
-  const [messages, setMessages] = useState([{ role: 'assistant', content: "Good morning. Ask me anything about MSG — fleet status, financials, legal matters, or active deals." }])
-  const [input,    setInput]    = useState('')
-  const [thinking, setThinking] = useState(false)
-  const bottomRef = useRef(null)
-
-  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages])
-
-  async function send() {
-    if (!input.trim()) return
-    const msg  = { role: 'user', content: input }
-    const hist = [...messages, msg]
-    setMessages(hist); setInput(''); setThinking(true)
-    const reply = await chatWithAssistant(messages, input)
-    setMessages(p => [...p, { role: 'assistant', content: reply }])
-    setThinking(false)
-  }
-
-  return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 300, background: M.bg, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ background: `linear-gradient(135deg, #0A1C32, #0F2444)`, borderBottom: `1px solid ${M.border}`, padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 34, height: 34, background: `linear-gradient(135deg,${M.gold},#E8C97A)`, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: '#071120', fontWeight: 800 }}>✦</div>
-          <div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: M.gold }}>Chairman's Assistant</div>
-            <div style={{ fontSize: 10, color: M.muted }}>AI-powered · Meridian Shipping</div>
-          </div>
-        </div>
-        <button onClick={onClose} style={{ background: M.card, border: `1px solid ${M.border}`, color: M.muted, width: 32, height: 32, borderRadius: 16, fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>×</button>
-      </div>
-      <div style={{ padding: '12px 16px', borderBottom: `1px solid ${M.border}`, flexShrink: 0 }}>
-        <div style={{ display: 'flex', gap: 6, overflowX: 'auto', paddingBottom: 2 }}>
-          {['What needs my attention?', 'MT Aurora status?', 'Legal exposure?', 'Cash and receivables?', 'Pool earnings?'].map(q => (
-            <button key={q} onClick={() => setInput(q)} style={{ background: M.card, border: `1px solid ${M.border}`, color: M.sub, fontSize: 11, padding: '6px 12px', borderRadius: 20, whiteSpace: 'nowrap', fontFamily: 'inherit', flexShrink: 0 }}>{q}</button>
-          ))}
-        </div>
-      </div>
-      <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
-        {messages.map((m, i) => (
-          <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: m.role === 'user' ? 'flex-end' : 'flex-start', marginBottom: 12 }}>
-            <div style={{ maxWidth: '88%', padding: '12px 16px', borderRadius: 16, background: m.role === 'user' ? M.goldDim : M.card, border: `1px solid ${m.role === 'user' ? M.gold + '44' : M.border}`, fontSize: 14, color: M.text, lineHeight: 1.75, borderBottomRightRadius: m.role === 'user' ? 4 : 16, borderBottomLeftRadius: m.role === 'assistant' ? 4 : 16, whiteSpace: 'pre-wrap' }}>{m.content}</div>
-          </div>
-        ))}
-        {thinking && (
-          <div style={{ display: 'flex', gap: 5, padding: '12px 16px', background: M.card, borderRadius: 16, width: 70, border: `1px solid ${M.border}` }}>
-            {[0, 1, 2].map(i => <span key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: M.muted, display: 'inline-block', animation: `pulse-amber 1.2s ease ${i * 0.2}s infinite` }}/>)}
-          </div>
-        )}
-        <div ref={bottomRef}/>
-      </div>
-      <div style={{ padding: '12px 16px', paddingBottom: 32, background: M.nav, borderTop: `1px solid ${M.border}`, flexShrink: 0 }}>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && send()} placeholder="Ask about fleet, finance, deals…" style={{ flex: 1, background: M.card, border: `1px solid ${M.border}`, borderRadius: 24, color: M.text, padding: '12px 18px', fontSize: 14, fontFamily: 'inherit', outline: 'none' }}/>
-          <button onClick={send} style={{ width: 46, height: 46, background: `linear-gradient(135deg,${M.gold},#E8C97A)`, border: 'none', borderRadius: 23, color: '#071120', fontSize: 18, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>›</button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 const TABS = [
   { k: 'home',    icon: '⌂', label: 'Home'    },
   { k: 'fleet',   icon: '⚓', label: 'Fleet'   },
@@ -826,7 +765,6 @@ function MoreTab({ onNavigate }) {
 export default function MobileDashboard() {
   const [tab,       setTab]       = useState('home')
   const [showMore,  setShowMore]  = useState(false)
-  const [assistant, setAssistant] = useState(false)
   const [alert,     setAlert]     = useState(true)
   const [now,       setNow]       = useState(new Date())
 
@@ -858,9 +796,6 @@ export default function MobileDashboard() {
       <div style={{ paddingBottom: 82, overflowY: 'auto', minHeight: 'calc(100vh - 82px)' }}>
         {screens[tab]}
       </div>
-      {!assistant && (
-        <button onClick={() => setAssistant(true)} style={{ position: 'fixed', right: 18, bottom: 92, zIndex: 100, width: 52, height: 52, borderRadius: 26, background: `linear-gradient(135deg,${M.gold},#E8C97A)`, border: 'none', color: '#071120', fontSize: 20, fontWeight: 800, boxShadow: '0 4px 20px rgba(212,172,90,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>✦</button>
-      )}
       <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 50, background: M.nav, borderTop: `1px solid ${M.border}`, display: 'flex', paddingBottom: 'env(safe-area-inset-bottom, 8px)', boxShadow: '0 -4px 30px rgba(0,0,0,0.5)' }}>
         {TABS.map(t => {
           const isActive = tab === t.k
@@ -876,7 +811,6 @@ export default function MobileDashboard() {
           )
         })}
       </div>
-      {assistant && <MobileAssistant onClose={() => setAssistant(false)}/>}
     </div>
   )
 }

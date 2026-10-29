@@ -211,12 +211,7 @@ body {
     padding: 10px 12px; border-radius: 8px; font-weight: 700;
     cursor: pointer; font-size: var(--text-sm); white-space: nowrap; overflow: hidden;
   }
-  .sidebar__ai-btn--pulse { animation: sidebar-pulse 2s infinite; box-shadow: 0 6px 18px var(--gold-glow); }
- 
-  @keyframes sidebar-pulse {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-3px); }
-  }
+  .sidebar__ai-btn:disabled { opacity: 0.45; cursor: not-allowed; }
  
   .sidebar__toggle {
     width: 44px; height: 44px; border-radius: 50%;

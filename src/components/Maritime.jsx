@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine } from 'recharts'
 import { VESSELS, VESSEL_EARNINGS, BREAKEVEN_PER_DAY, BREAKEVEN_PER_MONTH, calcWaterfall, COMMERCIAL_MODE_LABELS } from '../data/seed.js'
-import { C, StatusDot, Card, HeroCard, KpiCard, SectionLabel, GoldButton, AIOutput, tooltipStyle } from './ui.jsx'
-import { generateVesselBriefing } from '../lib/claude.js'
+import { C, StatusDot, Card, HeroCard, KpiCard, SectionLabel, GoldButton, tooltipStyle } from './ui.jsx'
 
 const SC = { green:C.green, amber:C.amber, red:C.red }
 
@@ -14,8 +13,6 @@ const barges  = VESSELS.filter(v => v.id.startsWith('B'))
 
 export default function Maritime() {
   const [selected, setSelected] = useState(null)
-  const [briefing, setBriefing] = useState('')
-  const [loading,  setLoading]  = useState(false)
   const [section,  setSection]  = useState('tankers') // 'tankers' | 'barges'
 
   const avgUtil  = Math.round(VESSELS.reduce((s,v) => s+v.util, 0) / VESSELS.length)
@@ -26,12 +23,6 @@ export default function Maritime() {
     const w = calcWaterfall(VESSEL_EARNINGS[v.id])
     return w && w.aboveBreakeven
   }).length
-
-  async function handleBriefing(v) {
-    setSelected(v); setBriefing(''); setLoading(true)
-    const txt = await generateVesselBriefing(v)
-    setBriefing(txt); setLoading(false)
-  }
 
   const displayVessels = section === 'tankers' ? tankers : barges
 
@@ -176,7 +167,7 @@ export default function Maritime() {
                 <div style={{ fontSize:12, color:C.textSub, marginTop:2 }}>{selected.note}</div>
               </div>
             </div>
-            <button onClick={()=>{setSelected(null);setBriefing('')}} style={{ background:'none', border:'none', color:C.textMuted, fontSize:22, lineHeight:1, padding:4 }}>×</button>
+            <button onClick={()=>setSelected(null)} style={{ background:'none', border:'none', color:C.textMuted, fontSize:22, lineHeight:1, padding:4 }}>×</button>
           </div>
 
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))', gap:10, marginBottom:16 }}>
@@ -231,10 +222,7 @@ export default function Maritime() {
             )
           })()}
 
-          <AIOutput loading={loading} loadingText="Generating vessel briefing…">{briefing}</AIOutput>
-          {!loading && !briefing && (
-            <GoldButton onClick={()=>handleBriefing(selected)} style={{ width:'100%', textAlign:'center', padding:'10px', marginTop:10 }}>★ Generate AI Vessel Briefing →</GoldButton>
-          )}
+          <GoldButton disabled style={{ width:'100%', textAlign:'center', padding:'10px', marginTop:10 }}>★ AI Vessel Briefing · Coming soon</GoldButton>
         </Card>
       )}
 

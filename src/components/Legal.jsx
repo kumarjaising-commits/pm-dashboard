@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import { LEGAL_MATTERS, LEGAL_CALENDAR, CERTIFICATES } from '../data/seed.js'
 import { C, Card, KpiCard, SectionLabel, GoldButton, StatusDot, Badge } from './ui.jsx'
-import { generateTalkingPoints } from '../lib/claude.js'
 
 const SC = { green:C.green, amber:C.amber, red:C.red }
 
@@ -47,9 +45,6 @@ function HearingCalendar({ events }) {
 }
 
 export default function Legal() {
-  const [talkPoints, setTalkPoints] = useState({})
-  const [loading, setLoading] = useState({})
-
   const totalExp      = LEGAL_MATTERS.reduce((s,m) => s+m.exp, 0)
   const totalSpendUSD = LEGAL_MATTERS.reduce((s,m) => s + (m.currency === 'INR' ? (m.spendUSD || 0) : (m.spend || 0)), 0)
 
@@ -60,13 +55,6 @@ export default function Legal() {
   const nextEventLabel = nextEvent
     ? new Date(nextEvent.date).toLocaleDateString('en-GB', { day:'numeric', month:'short' })
     : '—'
-
-  async function handleTalkPoints(m) {
-    setLoading(p => ({...p, [m.id]:true}))
-    const txt = await generateTalkingPoints(m)
-    setTalkPoints(p => ({...p, [m.id]:txt}))
-    setLoading(p => ({...p, [m.id]:false}))
-  }
 
   return (
     <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
@@ -108,16 +96,8 @@ export default function Legal() {
                   <span style={{ color:SC[m.status], fontWeight:600 }}>{m.event}</span>
                   <span style={{ color:C.textMuted }}> — {new Date(m.next).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span>
                 </div>
-                <GoldButton outline onClick={()=>handleTalkPoints(m)}>
-                  {loading[m.id] ? '⟳ Generating…' : '✦ Talking Points →'}
-                </GoldButton>
+                <GoldButton outline disabled>✦ Talking Points · Coming soon</GoldButton>
               </div>
-              {talkPoints[m.id] && (
-                <div style={{ marginTop:12, background:C.card, borderRadius:8, padding:'14px', border:`1px solid ${C.borderGold}` }}>
-                  <div style={{ fontSize:10, fontWeight:700, color:C.gold, letterSpacing:'0.08em', marginBottom:8 }}>AI TALKING POINTS</div>
-                  <div style={{ fontSize:12, color:'#C8D8EC', lineHeight:1.8, whiteSpace:'pre-wrap' }}>{talkPoints[m.id]}</div>
-                </div>
-              )}
             </div>
           ))}
         </div>

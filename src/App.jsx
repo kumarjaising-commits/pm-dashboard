@@ -20,7 +20,6 @@ const MarketIntel   = lazy(()=>import('./components/MarketIntel.jsx'))
 const PoolEarnings  = lazy(()=>import('./components/PoolEarnings.jsx'))
 const BunkeringLog  = lazy(()=>import('./components/BunkeringLog.jsx'))
 const Awards        = lazy(()=>import('./components/Awards.jsx'))
-const AIAssistant   = lazy(()=>import('./components/AIAssistant.jsx'))
 
 const SCREENS = {
   overview:    <Overview/>,
@@ -46,7 +45,6 @@ const criticalCount = ALERTS.filter(a=>a.level==='critical').length
 export default function App() {
   const [tab,              setTab]              = useState('overview')
   const [alert,            setAlert]            = useState(true)
-  const [assistant,        setAssistant]        = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [now,              setNow]              = useState(new Date())
 
@@ -65,10 +63,8 @@ export default function App() {
       <Sidebar
         activeTab={tab}
         onTabChange={setTab}
-        actionItemCount={criticalCount}
         collapsed={sidebarCollapsed}
         onToggleCollapse={()=>setSidebarCollapsed(p=>!p)}
-        onAssistantClick={()=>setAssistant(p=>!p)}
       />
 
       <div className={`app-shell${sidebarCollapsed?' app-shell--collapsed':''}`}>
@@ -98,9 +94,8 @@ export default function App() {
               <span className="pulse-green" style={{ width:6,height:6,borderRadius:'50%',background:C.green,display:'inline-block' }}/>
               <span style={{ fontSize:10,fontWeight:700,color:C.green,letterSpacing:'0.06em' }}>6 SYSTEMS LIVE</span>
             </div>
-            <button onClick={()=>setAssistant(p=>!p)} style={{ display:'flex',alignItems:'center',gap:7,position:'relative',background:assistant?C.goldGlow:'transparent',border:`1px solid ${assistant?C.gold:C.border}`,borderRadius:20,padding:'7px 16px',color:assistant?C.gold:C.textMuted,fontSize:12,fontWeight:600,transition:'all 0.2s',fontFamily:'inherit',cursor:'pointer' }}>
-              ✦ Assistant
-              {criticalCount>0&&<span style={{ position:'absolute',top:-4,right:-4,width:16,height:16,borderRadius:'50%',background:C.red,fontSize:9,fontWeight:700,color:'#fff',display:'flex',alignItems:'center',justifyContent:'center' }}>{criticalCount}</span>}
+            <button disabled title="AI Assistant — coming soon" style={{ display:'flex',alignItems:'center',gap:7,background:'transparent',border:`1px solid ${C.border}`,borderRadius:20,padding:'7px 16px',color:C.textMuted,fontSize:12,fontWeight:600,fontFamily:'inherit',cursor:'not-allowed',opacity:0.6 }}>
+              ✦ Assistant · Coming soon
             </button>
           </div>
         </div>
@@ -121,13 +116,12 @@ export default function App() {
           ))}
         </div>
 
-        <div style={{ padding:'20px 24px',maxWidth:1440,paddingRight:assistant?430:24,transition:'padding-right 0.3s' }}>
+        <div style={{ padding:'20px 24px',maxWidth:1440,paddingRight:24 }}>
           <Suspense fallback={<div style={{ display:'flex',alignItems:'center',justifyContent:'center',height:300,color:C.textMuted,fontSize:13 }}>✦ Loading…</div>}>
             {SCREENS[tab]}
           </Suspense>
         </div>
 
-        {assistant&&<Suspense fallback={null}><AIAssistant onClose={()=>setAssistant(false)}/></Suspense>}
 
       </div>
     </div>
